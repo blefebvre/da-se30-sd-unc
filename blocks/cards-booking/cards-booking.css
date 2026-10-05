@@ -1,0 +1,189 @@
+/*
+ * cards-booking
+ * Court booking cards (source: .tile.teaser / .cmp-teaser in an AEM 12-col grid).
+ * Landscape image, semibold title, short black rule, price text and a centered
+ * black pill CTA pinned to the card bottom.
+ * Source container widths: 336 (mobile) / 720 (>= 768) / full up to 1200 (>= 992),
+ * 12px container padding + 6px column gutters -> 18px inset, 12px column gap.
+ * 1 col mobile, 2 cols >= 768px, 4 cols >= 992px.
+ */
+.cards-booking {
+  --cards-booking-width: min(336px, 100% + 48px);
+
+  box-sizing: border-box;
+  width: var(--cards-booking-width);
+  margin-inline: calc((100% - var(--cards-booking-width)) / 2);
+
+  /* 57px source spacer + 8px column padding above and below the grid */
+  padding: 65px 18px;
+}
+
+.cards-booking > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px 12px;
+}
+
+.cards-booking .cards-booking-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  border: 1px solid rgb(0 0 0 / 5%);
+  border-radius: 4px;
+  background-color: var(--background-color);
+  box-shadow: 0 2px 5px 0 rgb(0 0 0 / 50%);
+  color: #000;
+}
+
+.cards-booking .cards-booking-card-image {
+  overflow: hidden;
+  line-height: 0;
+}
+
+.cards-booking .cards-booking-card-image picture {
+  display: block;
+}
+
+.cards-booking .cards-booking-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+
+  /* source renders each image at its natural ratio; 3:2 only until it loads */
+  aspect-ratio: auto 3 / 2;
+}
+
+.cards-booking .cards-booking-card-body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  padding: 0 20px;
+}
+
+.cards-booking .cards-booking-card-body > :is(h1, h2, h3, h4, h5, h6) {
+  margin: 16px 0 0;
+  color: inherit;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 400;
+  line-height: 28px;
+}
+
+/* price group: short black rule on top, reserves two lines like the source */
+.cards-booking .cards-booking-card-description {
+  display: flex;
+  flex-direction: column;
+
+  /* rule (4 + 10) + two 1.4286 lines, each snapped down to 1/64px like the source */
+  min-height: calc(14px + 2.856em);
+  margin: 21px 0 20px;
+  font-size: var(--body-font-size-m);
+  line-height: 1.4286;
+}
+
+.cards-booking .cards-booking-card-body > .cards-booking-card-description:first-child {
+  margin-top: 16px;
+}
+
+.cards-booking .cards-booking-card-description::before {
+  content: "";
+  flex: none;
+  width: 34px;
+  height: 4px;
+  margin-bottom: 10px;
+  background-color: #000;
+}
+
+.cards-booking .cards-booking-card-description > * {
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.cards-booking .cards-booking-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: auto 30px 30px;
+}
+
+.cards-booking .cards-booking-card-body > .cards-booking-card-actions:first-child {
+  margin-top: 30px;
+}
+
+.cards-booking .cards-booking-card-actions p.button-wrapper,
+.cards-booking .cards-booking-card-actions p.button-container {
+  display: flex;
+  flex: 0 1 220px;
+  min-width: 0;
+  margin: 0;
+}
+
+.cards-booking .cards-booking-card-actions a.button:any-link {
+  flex: 1;
+  min-width: 120px;
+  min-height: 56px;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  padding: 14px;
+  background-color: #000;
+  color: #fff;
+  font-family: var(--body-semibold-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cards-booking .cards-booking-card-actions a.button:hover,
+.cards-booking .cards-booking-card-actions a.button:focus-visible {
+  border-color: transparent;
+  background-color: #000;
+  color: #fff;
+  opacity: 0.7;
+}
+
+@media (width >= 768px) {
+  .cards-booking {
+    --cards-booking-width: 720px;
+  }
+
+  .cards-booking > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cards-booking .cards-booking-card-body > :is(h1, h2, h3, h4, h5, h6) {
+    line-height: 32px;
+  }
+}
+
+/*
+ * Tablet (768-991px): the source floats the tiles in 2 columns; the first image
+ * is a fraction of a pixel taller, so tile 3 snags on tile 1 and drops into the
+ * right column, leaving an empty cell bottom-left of row 2 (1 2 / _ 3 / 4 5).
+ * Reproduced here for a 1:1 match; delete this rule to get a regular 2-col grid.
+ */
+@media (width >= 768px) and (width < 992px) {
+  .cards-booking > ul > li:nth-child(3) {
+    grid-column: 2;
+  }
+}
+
+@media (width >= 992px) {
+  .cards-booking {
+    --cards-booking-width: min(1200px, 100% + 12px);
+  }
+
+  .cards-booking > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .cards-booking .cards-booking-card-body {
+    padding-top: 20px;
+  }
+}

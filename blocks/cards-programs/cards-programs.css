@@ -1,0 +1,302 @@
+/*
+ * cards-programs
+ * Values measured from source (#aa-default-programs) computed styles.
+ * Source container: 336px centered (<768), 720px centered (768-991),
+ * full width up to 1200px (>=992). Each card column has 6px inner gutters
+ * and 8px vertical padding; image and text wrappers have 8px vertical padding.
+ */
+.cards-programs {
+  margin-inline: max(-24px, calc((100% - 336px) / 2));
+}
+
+.cards-programs > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.cards-programs .cards-programs-card {
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 8px 6px;
+  color: #000;
+}
+
+.cards-programs .cards-programs-card-image {
+  padding: 8px 0;
+  line-height: 0;
+}
+
+.cards-programs .cards-programs-card-image picture {
+  display: block;
+}
+
+.cards-programs .cards-programs-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.cards-programs .cards-programs-card-body {
+  padding: 8px 0;
+}
+
+.cards-programs .cards-programs-card-body h3 {
+  margin: 10px 0;
+  color: inherit;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--heading-font-size-s);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.cards-programs .cards-programs-card-body p {
+  margin: 0;
+  color: inherit;
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+/* source has an empty 24px paragraph between description and "Learn More" */
+.cards-programs .cards-programs-card-body p:not(:first-child, .button-wrapper, .button-container):has(> a:only-child) {
+  margin-top: 24px;
+}
+
+.cards-programs .cards-programs-card-body a:any-link:not(.button) {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.cards-programs .cards-programs-card-body a:not(.button):hover,
+.cards-programs .cards-programs-card-body a:not(.button):focus-visible {
+  color: var(--link-hover-color);
+}
+
+/* promo card (Free 30): solid brand blue, centered white text, white button */
+.cards-programs .cards-programs-card.cards-programs-promo {
+  align-self: start;
+  margin: 17px 0 26px;
+  padding: 0 18px;
+  background-color: var(--brand-blue);
+  color: #fff;
+  text-align: center;
+}
+
+.cards-programs .cards-programs-promo .cards-programs-card-image {
+  padding: 32px 0 8px;
+}
+
+.cards-programs .cards-programs-promo .cards-programs-card-image picture {
+  display: flex;
+  justify-content: center;
+}
+
+.cards-programs .cards-programs-promo .cards-programs-card-image img {
+  width: 50%;
+  max-width: none;
+}
+
+.cards-programs .cards-programs-promo .cards-programs-card-body {
+  padding: 8px 0 32px;
+}
+
+.cards-programs .cards-programs-promo p.button-wrapper,
+.cards-programs .cards-programs-promo p.button-container {
+  margin: 40px 0 0;
+  line-height: 0;
+}
+
+main .cards-programs .cards-programs-promo a.button:any-link {
+  width: max-content;
+  min-width: 100%;
+  max-width: none;
+  height: 40px;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 14px;
+  background-color: #fff;
+  color: #000;
+  font-family: var(--body-semibold-font-family);
+  font-size: 18px;
+  line-height: 20px;
+
+  /* source sets 1px on .cmp-button but the inner text span resets to normal */
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+main .cards-programs .cards-programs-promo a.button:hover,
+main .cards-programs .cards-programs-promo a.button:focus-visible {
+  border-color: #fff;
+  background-color: #000;
+  color: #fff;
+}
+
+/* tablet: 720px container, 3 columns of 240px; promo is 180px (3/12) and
+   floats into column 3 under the first row, as on the source */
+@media (width >= 768px) {
+  .cards-programs {
+    margin-inline: calc((100% - 720px) / 2);
+  }
+
+  .cards-programs > ul {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .cards-programs .cards-programs-card.cards-programs-promo {
+    grid-column: 3;
+    width: 180px;
+  }
+
+  .cards-programs .cards-programs-promo + .cards-programs-card {
+    grid-column-start: 1;
+  }
+
+  .cards-programs .cards-programs-promo .cards-programs-card-image img {
+    width: 52.5px;
+  }
+
+  /* source button overflows the 144px column, offset 20px from its left */
+  main .cards-programs .cards-programs-promo a.button:any-link {
+    margin-left: 20px;
+  }
+}
+
+/* desktop: full container width (max 1200px), 4 equal columns */
+@media (width >= 992px) {
+  .cards-programs {
+    margin-inline: 0;
+  }
+
+  .cards-programs > ul {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .cards-programs .cards-programs-card.cards-programs-promo {
+    grid-column: auto;
+    width: auto;
+  }
+
+  .cards-programs .cards-programs-promo + .cards-programs-card {
+    grid-column-start: auto;
+  }
+
+  .cards-programs .cards-programs-promo .cards-programs-card-image img {
+    width: 50%;
+  }
+
+  main .cards-programs .cards-programs-promo a.button:any-link {
+    margin-left: 0;
+  }
+}
+
+/*
+ * heading-only tile (play page "Book a Court at the USTA National Campus"):
+ * solid brand blue, sits inside the column's top padding, 12px short of the
+ * column's right edge, centered white condensed heading link.
+ */
+.cards-programs .cards-programs-card.cards-programs-tile {
+  align-self: start;
+  margin: 8px 12px 8px 0;
+  padding: 32px 18px 48px;
+  background-color: var(--brand-blue);
+  color: #fff;
+  text-align: center;
+}
+
+.cards-programs .cards-programs-tile .cards-programs-card-body :is(h1, h2, h3, h4, h5, h6) {
+  margin: 0;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.cards-programs .cards-programs-tile a:any-link:not(.button) {
+  color: #fff;
+}
+
+.cards-programs .cards-programs-tile a:not(.button):hover,
+.cards-programs .cards-programs-tile a:not(.button):focus-visible {
+  color: #eef0f0;
+}
+
+/*
+ * event cards (events / calendar): image, bold date line, title, location.
+ * Source column: 8px outer + 16px (mobile) / 32px inner top padding,
+ * 32px / 64px + 8px bottom; no image/text wrapper padding.
+ */
+.cards-programs .cards-programs-card.cards-programs-event {
+  padding: 24px 6px 40px;
+}
+
+.cards-programs .cards-programs-event .cards-programs-card-image,
+.cards-programs .cards-programs-event .cards-programs-card-body {
+  padding: 0;
+}
+
+.cards-programs .cards-programs-event .cards-programs-card-body .cards-programs-card-date {
+  margin: 10px 0;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--heading-font-size-xs);
+  line-height: 1.1;
+}
+
+.cards-programs .cards-programs-event .cards-programs-card-date strong {
+  font-weight: 400;
+}
+
+.cards-programs .cards-programs-event .cards-programs-card-body :is(h1, h2, h3, h4, h5, h6) {
+  margin: 10px 0;
+  font-family: var(--body-semibold-font-family);
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+/* source authors a blank line between title and location */
+.cards-programs .cards-programs-event .cards-programs-card-body .cards-programs-card-meta {
+  margin-top: 34px;
+}
+
+@media (width >= 768px) {
+  .cards-programs .cards-programs-card.cards-programs-tile {
+    padding: 64px 18px 96px;
+  }
+
+  .cards-programs .cards-programs-card.cards-programs-event {
+    padding: 40px 6px 72px;
+  }
+
+  .cards-programs .cards-programs-event .cards-programs-card-body :is(h1, h2, h3, h4, h5, h6) {
+    font-size: 28px;
+  }
+
+  /* tablet: source floats 2 cards per row, so a short card lets the next
+     one ride up beside a taller one */
+  .cards-programs.cards-programs-events > ul {
+    display: flow-root;
+  }
+
+  .cards-programs.cards-programs-events .cards-programs-card {
+    float: left;
+    width: 50%;
+  }
+}
+
+@media (width >= 992px) {
+  .cards-programs.cards-programs-events > ul {
+    display: grid;
+  }
+
+  .cards-programs.cards-programs-events .cards-programs-card {
+    float: none;
+    width: auto;
+  }
+}

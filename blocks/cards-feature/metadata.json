@@ -1,0 +1,23 @@
+{
+  "variantName": "cards-feature",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "feature-teasers",
+    "imagePattern": "left-thumbnail",
+    "structure": "small square-ish image left (~188-200px) + condensed heading + body + underlined link right",
+    "notes": "default: 2 cards per row on desktop; wide: one card per row spanning the container. Stack image above text on mobile."
+  },
+  "contentPattern": "2 columns per row: [image | H2 heading + paragraph(s) + text link]",
+  "usage": {
+    "pagesUsing": ["https://www.ustanationalcampus.com/en/home/about.html"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [
+    { "class": "wide", "label": "Wide (one per row)" }
+  ],
+  "memberVariantIds": []
+}

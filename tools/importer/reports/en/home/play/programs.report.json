@@ -1,0 +1,11 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/programs.html",
+  "path": "en/home/play/programs",
+  "timestamp": "2026-10-02T23:54:44.272Z",
+  "title": "Programs",
+  "template": "landing",
+  "blocks": [
+    "cards-mosaic"
+  ]
+}

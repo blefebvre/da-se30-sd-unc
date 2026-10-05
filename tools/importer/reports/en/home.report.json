@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home.html",
+  "path": "en/home",
+  "timestamp": "2026-10-02T23:53:38.368Z",
+  "title": "Home",
+  "template": "home",
+  "blocks": [
+    "hero-overlay",
+    "cards-mosaic",
+    "columns-stats",
+    "cards-programs"
+  ]
+}

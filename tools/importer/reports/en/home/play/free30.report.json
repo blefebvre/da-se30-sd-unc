@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/free30.html",
+  "path": "en/home/play/free30",
+  "timestamp": "2026-10-02T23:51:05.481Z",
+  "title": "Free30",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "columns-media",
+    "cards-programs",
+    "accordion"
+  ]
+}

@@ -1,0 +1,405 @@
+/*
+ * Hero Overlay
+ * Source geometry (ustanationalcampus.com home hero):
+ * - block top padding = container padding (64 / 128px) + 4 x 57px spacer rows
+ *   + 8px band-wrapper padding  => 300px mobile, 364px >= 768px
+ * - block bottom padding = 8px band-wrapper padding + 16 / 32px margin
+ *   => 24px mobile, 40px >= 768px
+ * - dark band = 75% wide (9/12 cols), rgba(0 0 0 / 50%), 17px vertical padding
+ * - heading column = 8/9 of the band, 6px gutters
+ * Source grid breakpoints: tablet >= 768px, desktop >= 992px.
+ */
+.hero-overlay-container .hero-overlay-wrapper {
+  max-width: unset;
+  padding: 0;
+}
+
+.hero-overlay {
+  position: relative;
+  box-sizing: border-box;
+  margin: 8px 0;
+  padding: 300px 0 24px;
+  overflow: hidden;
+}
+
+.hero-overlay .hero-overlay-media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  line-height: 0;
+}
+
+.hero-overlay .hero-overlay-media picture,
+.hero-overlay .hero-overlay-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.hero-overlay .hero-overlay-content {
+  position: relative;
+  z-index: 1;
+  box-sizing: border-box;
+  width: 75%;
+  padding: 17px 0;
+  background-color: rgb(0 0 0 / 50%);
+  color: #fff;
+}
+
+.hero-overlay .hero-overlay-content > * {
+  width: calc((100% * 8 / 9) - 12px);
+  margin: 0 6px;
+  color: #fff;
+}
+
+.hero-overlay .hero-overlay-content h1 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xxl);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.hero-overlay .hero-overlay-content > * + * {
+  margin-top: 16px;
+}
+
+/* no background image: drop the spacer offsets, keep the band */
+.hero-overlay.hero-overlay-no-image {
+  padding: 0;
+}
+
+@media (width >= 768px) {
+  .hero-overlay {
+    padding: 364px 0 40px;
+  }
+}
+
+/* --- optional band content: H2 banners, paragraphs, CTA buttons --- */
+.hero-overlay .hero-overlay-content h2 {
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.hero-overlay .hero-overlay-content p {
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+.hero-overlay .hero-overlay-actions p.button-wrapper,
+.hero-overlay .hero-overlay-actions p.button-container {
+  width: auto;
+  margin: 0;
+}
+
+/* source .cmp-button: Graphik Semibold 18px/20px uppercase (the 1px tracking
+   on the source anchor is reset on its inner text span, so none renders) */
+.hero-overlay .hero-overlay-actions a.button:any-link {
+  font-size: 18px;
+  letter-spacing: normal;
+}
+
+/*
+ * --- light: white translucent band with dark text ---
+ * band starts 112 / 224px down and runs to the bottom edge;
+ * subtitle = source H4 (Graphik Semibold 22 / 28px) after a 24px spacer
+ */
+.hero-overlay.light {
+  margin: 0;
+  padding: 112px 0 0;
+}
+
+.hero-overlay.light .hero-overlay-content {
+  width: 100%;
+  padding: 32px 37.5px;
+  background-color: rgb(255 255 255 / 78%);
+  color: var(--dark-color);
+}
+
+.hero-overlay.light .hero-overlay-content > * {
+  width: auto;
+  margin: 0;
+  color: var(--dark-color);
+}
+
+.hero-overlay.light .hero-overlay-content > p:not(.button-wrapper, .button-container) {
+  margin: 34px 0 10px;
+  font-family: var(--body-semibold-font-family);
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* source light headings are authored with a trailing &nbsp;, which decides
+   where long titles wrap; reproduce it so line breaks match */
+.hero-overlay.light .hero-overlay-content h1::after {
+  content: "\a0";
+}
+
+@media (width >= 768px) {
+  .hero-overlay.light {
+    padding-top: 224px;
+  }
+
+  .hero-overlay.light .hero-overlay-content {
+    padding: 48px 42px;
+  }
+
+  .hero-overlay.light .hero-overlay-content > p:not(.button-wrapper, .button-container) {
+    font-size: 28px;
+  }
+}
+
+@media (width >= 992px) {
+  .hero-overlay.light .hero-overlay-content {
+    width: 66.667%;
+    padding: 48px 30px;
+  }
+}
+
+/*
+ * --- centered: text centered over a tint inset 8px top/bottom ---
+ * heading-only (sponsors): 144 / 80px vertical padding
+ * heading + CTAs (watch): 72/80 | 40/48px padding, white pill buttons
+ */
+.hero-overlay.centered {
+  margin: 0;
+  padding: 8px 0;
+}
+
+.hero-overlay.centered .hero-overlay-media::after {
+  content: "";
+  position: absolute;
+  inset: 8px 0;
+  background-color: rgb(0 0 0 / 51%);
+}
+
+.hero-overlay.centered .hero-overlay-content {
+  width: 100%;
+  padding: 80px 0;
+  background-color: transparent;
+  text-align: center;
+}
+
+.hero-overlay.centered .hero-overlay-content > :not(.hero-overlay-actions) {
+  width: auto;
+  margin: 0 25.5px;
+}
+
+/* in-page event banners: 48 / 32px (80 / 64px >= 768) outer spacing that
+   must not collapse between consecutive banners (source gap 80 / 144px) */
+.hero-overlay-wrapper:has(> .hero-overlay.centered.hero-overlay-has-actions) {
+  display: flow-root;
+}
+
+.hero-overlay.centered.hero-overlay-has-actions {
+  margin: 48px 0 32px;
+}
+
+.hero-overlay.centered.hero-overlay-has-actions .hero-overlay-media img {
+  object-position: 75% 50%;
+}
+
+.hero-overlay.centered.hero-overlay-has-actions .hero-overlay-media::after {
+  background-color: rgb(0 0 0 / 49%);
+}
+
+.hero-overlay.centered.hero-overlay-has-actions .hero-overlay-content {
+  padding: 40px 0 48px;
+}
+
+.hero-overlay.centered.hero-overlay-has-actions .hero-overlay-content > :not(.hero-overlay-actions) {
+  margin: 0 68.5px;
+}
+
+.hero-overlay.centered .hero-overlay-content > .hero-overlay-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: auto;
+  margin: 24px 0 0;
+}
+
+.hero-overlay.centered .hero-overlay-actions a.button:any-link {
+  width: 268px;
+  height: 56px;
+  border-width: 2px;
+  border-radius: 9999px;
+  padding: 0 14px;
+}
+
+.hero-overlay.centered.hero-overlay-no-image {
+  background-color: var(--dark-color);
+}
+
+@media (width >= 768px) {
+  .hero-overlay.centered .hero-overlay-content {
+    padding: 144px 0;
+  }
+
+  .hero-overlay.centered .hero-overlay-content > :not(.hero-overlay-actions) {
+    margin: 0 30px;
+  }
+
+  .hero-overlay.centered.hero-overlay-has-actions {
+    margin: 80px 0 64px;
+  }
+
+  .hero-overlay.centered.hero-overlay-has-actions .hero-overlay-content {
+    padding: 72px 0 80px;
+  }
+
+  .hero-overlay.centered.hero-overlay-has-actions .hero-overlay-content > :not(.hero-overlay-actions) {
+    margin: 0 134px;
+  }
+
+  /* source: 3-up 12-col row, 24px container inset, 6px gutters */
+  .hero-overlay.centered .hero-overlay-content > .hero-overlay-actions {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    box-sizing: border-box;
+    max-width: 1248px;
+    margin: 24px auto 0;
+    padding: 0 24px;
+    gap: 0;
+  }
+
+  .hero-overlay.centered .hero-overlay-actions p.button-wrapper,
+  .hero-overlay.centered .hero-overlay-actions p.button-container {
+    justify-self: start;
+    min-width: 0;
+    margin-left: 6px;
+  }
+
+  .hero-overlay.centered .hero-overlay-actions a.button:any-link {
+    width: 280px;
+    max-width: none;
+  }
+}
+
+@media (width >= 992px) {
+  .hero-overlay.centered .hero-overlay-content > :not(.hero-overlay-actions) {
+    margin: 0 126px;
+  }
+
+  .hero-overlay.centered.hero-overlay-has-actions .hero-overlay-content > :not(.hero-overlay-actions) {
+    margin: 0 246px;
+  }
+
+  .hero-overlay.centered .hero-overlay-actions p.button-wrapper,
+  .hero-overlay.centered .hero-overlay-actions p.button-container {
+    justify-self: center;
+    margin-left: 0;
+  }
+}
+
+/* combined: centered layout wins, light band colours apply */
+.hero-overlay.centered.light .hero-overlay-content {
+  background-color: rgb(255 255 255 / 78%);
+}
+
+.hero-overlay.centered.light .hero-overlay-media::after {
+  content: none;
+}
+
+/*
+ * default + heading/copy (play): 11/12 band (8/12 desktop), 12px left inset,
+ * 6px gutters, copy sits directly under the heading
+ */
+.hero-overlay.hero-overlay-has-text:not(.centered, .light) {
+  padding: 226px 0 16px;
+}
+
+.hero-overlay.hero-overlay-has-text:not(.centered, .light) .hero-overlay-content {
+  width: 91.667%;
+  padding: 24px 0 24px 12px;
+  background-color: rgb(0 0 0 / 50%);
+}
+
+.hero-overlay.hero-overlay-has-text:not(.centered, .light) .hero-overlay-content > * {
+  width: auto;
+  margin: 0 6px;
+}
+
+/*
+ * default + heading/CTAs (about): full-width band (7/12 desktop),
+ * rgba(0 0 0 / 60%), 12px insets, rectangular blue buttons
+ */
+.hero-overlay.hero-overlay-has-actions:not(.centered, .light) {
+  margin: 0;
+  padding: 160px 0 16px;
+}
+
+.hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-content {
+  width: 100%;
+  padding: 24px 12px;
+  background-color: rgb(0 0 0 / 60%);
+}
+
+.hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-content > * {
+  width: auto;
+  margin: 0 6px;
+}
+
+.hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-content > * + * {
+  margin-top: 16px;
+}
+
+.hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-actions p.button-wrapper,
+.hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-actions p.button-container {
+  min-width: 0;
+}
+
+.hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-actions a.button:any-link {
+  width: 100%;
+  min-width: max-content;
+  height: 40px;
+  max-width: none;
+  border-color: transparent;
+  padding: 0 14px;
+  overflow: visible;
+}
+
+@media (width >= 768px) {
+  .hero-overlay.hero-overlay-has-text:not(.centered, .light) {
+    padding: 338px 0 32px;
+  }
+
+  .hero-overlay.hero-overlay-has-text:not(.centered, .light) .hero-overlay-content {
+    padding: 40px 0 40px 12px;
+  }
+
+  .hero-overlay.hero-overlay-has-actions:not(.centered, .light) {
+    padding: 320px 0 32px;
+  }
+
+  .hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-content {
+    padding: 40px 12px;
+  }
+}
+
+@media (width >= 992px) {
+  .hero-overlay.hero-overlay-has-text:not(.centered, .light) .hero-overlay-content {
+    width: 66.667%;
+  }
+
+  .hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-content {
+    width: 58.333%;
+  }
+
+  /* each button spans 2 of the band's 7 columns */
+  .hero-overlay.hero-overlay-has-actions:not(.centered, .light) .hero-overlay-actions {
+    grid-template-columns: repeat(2, calc(((100% + 12px) * 2 / 7) - 12px));
+  }
+}

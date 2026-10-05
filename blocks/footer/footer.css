@@ -1,20 +1,318 @@
+/*
+ * Footer — measured from ustanationalcampus.com (footer.nc-footer).
+ * Mobile-first: base = source mobile (< 768), 900px = source tablet (768-1200),
+ * 1200px = source desktop (> 1400, customer-confirmed at 1440).
+ */
 footer {
-  background-color: var(--light-color);
-  font-size: var(--body-font-size-xs);
+  padding: 0;
+  background-color: var(--brand-teal);
 }
 
-footer .footer > div {
-  margin: auto;
-  max-width: 1200px;
-  padding: 40px 24px 24px;
+footer .footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  line-height: 1.4286;
+  color: var(--text-color);
 }
 
-footer .footer p {
+footer .footer *,
+footer .footer *::before,
+footer .footer *::after {
+  box-sizing: border-box;
+}
+
+footer .footer p,
+footer .footer ul {
+  margin: 0;
+  padding: 0;
+}
+
+footer .footer ul {
+  list-style: none;
+}
+
+/* bands: centered 300px column on mobile */
+footer .footer .footer-band {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  max-width: 100%;
+  padding: 50px 0 0;
+}
+
+/* subscription: logo + newsletter */
+footer .footer .footer-subscription {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 18px;
+  width: 300px;
+  max-width: 100%;
+}
+
+footer .footer .footer-subscription img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* info grid — mobile/tablet: hours full row, then address | info links, links | book now */
+footer .footer .footer-info {
+  display: grid;
+  width: 100%;
+  margin-top: 36px;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 29px;
+}
+
+footer .footer .footer-info-details {
+  display: contents;
+}
+
+footer .footer .footer-info-group:first-child {
+  grid-column: 1 / -1;
+}
+
+footer .footer .footer-heading {
+  margin: 0 0 16px;
+  color: #000;
+  font-family: var(--body-semibold-font-family);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+/* link columns */
+footer .footer .footer-links li:not(:last-child) {
+  margin-bottom: 22px;
+}
+
+footer .footer .footer-links a:any-link {
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 21px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+footer .footer .footer-links a:hover {
+  color: var(--link-hover-color);
+}
+
+/* copyright line */
+footer .footer .footer-copyright p {
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+/* info text (hours / address) */
+footer .footer .footer-info-content p {
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 21px;
+  text-transform: uppercase;
+}
+
+footer .footer .footer-info-content p:not(:last-child) {
+  margin-bottom: 22px;
+}
+
+footer .footer .footer-info-content a:any-link {
+  color: #000;
+  font-size: 12px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* first group (hours) uses the larger 14px rows */
+footer .footer .footer-info-group:first-child p {
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+footer .footer .footer-info-group:first-child strong {
+  font-weight: 900;
+}
+
+/* following groups (address) */
+footer .footer .footer-info-group + .footer-info-group p:not(.footer-inline-link) {
+  margin-bottom: 14px;
+}
+
+/* link + image row (show on map) */
+footer .footer .footer-info-content .footer-inline-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0;
+  font-size: 16px;
+  line-height: 1.4286;
+}
+
+footer .footer .footer-info-content .footer-inline-link a:any-link {
+  display: block;
+  line-height: 21px;
+  text-decoration: underline;
+}
+
+footer .footer .footer-info-content .footer-inline-link a:hover {
+  color: var(--link-hover-color);
+  text-decoration: none;
+}
+
+footer .footer .footer-inline-link img {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* buttons (newsletter / book now): flat black, opacity hover */
+footer .footer a.button:any-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background-color: #000;
+  color: #fff;
+  font-family: var(--body-semibold-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 18px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: opacity 0.3s;
+}
+
+footer .footer a.button:hover,
+footer .footer a.button:focus-visible {
+  border: 0;
+  background-color: #000;
+  color: #fff;
+  opacity: 0.7;
+}
+
+footer .footer p.button-wrapper {
   margin: 0;
 }
 
+/* booking */
+footer .footer .footer-booking {
+  justify-self: end;
+  max-width: 225px;
+  text-align: right;
+}
+
+footer .footer .footer-booking a.button:any-link {
+  width: 110px;
+  margin: 0 0 10px auto;
+}
+
+/* social + copyright (source mobile/tablet: 48px visual gap above the icons) */
+footer .footer .footer-band.footer-social {
+  padding-top: 0;
+}
+
+footer .footer .footer-social-nav {
+  margin-top: 48px;
+}
+
+footer .footer .footer-social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 35px;
+}
+
+footer .footer .footer-social-links img {
+  vertical-align: middle;
+}
+
+footer .footer .footer-copyright {
+  margin: 22px 0 40px;
+}
+
+/* closing bar: hidden on mobile */
+footer .footer .footer-bottom-line {
+  display: none;
+  width: 100%;
+  height: 10px;
+  background-color: #000;
+}
+
+/* tablet: logo column beside a two-column info grid */
 @media (width >= 900px) {
-  footer .footer > div {
-    padding: 40px 32px 24px;
+  footer .footer .footer-band {
+    flex-direction: row;
+    align-items: stretch;
+    width: 90%;
+    max-width: 1440px;
+    padding: 50px 30px 0;
+    column-gap: 40px;
+  }
+
+  footer .footer .footer-band.footer-social {
+    flex-direction: column;
+    align-items: center;
+    padding-top: 0;
+  }
+
+  footer .footer .footer-info {
+    margin-top: 0;
+  }
+
+  footer .footer .footer-info-group + .footer-info-group {
+    margin-top: 44px;
+  }
+
+  footer .footer .footer-bottom-line {
+    display: block;
+  }
+}
+
+/* desktop: details | link column | link column | booking */
+@media (width >= 1200px) {
+  footer .footer .footer-band {
+    width: 100%;
+    padding: 50px 40px 0;
+    column-gap: 50px;
+  }
+
+  footer .footer .footer-band.footer-social {
+    padding-top: 50px;
+  }
+
+  footer .footer .footer-social-nav {
+    margin-top: 55px;
+  }
+
+  footer .footer .footer-info {
+    grid-template-columns: 2.5fr minmax(max-content, 1fr) minmax(max-content, 1.25fr) 1.75fr;
+    gap: 0 6%;
+  }
+
+  footer .footer .footer-info-details {
+    display: block;
+  }
+
+  footer .footer .footer-info-group:first-child {
+    grid-column: auto;
   }
 }

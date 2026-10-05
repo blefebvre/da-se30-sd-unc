@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/high-performance.html",
+  "path": "en/home/play/high-performance",
+  "timestamp": "2026-10-02T23:51:11.900Z",
+  "title": "high performance",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "tabs",
+    "carousel"
+  ]
+}

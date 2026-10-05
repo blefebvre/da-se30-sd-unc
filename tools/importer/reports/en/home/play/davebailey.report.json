@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/davebailey.html",
+  "path": "en/home/play/davebailey",
+  "timestamp": "2026-10-02T23:51:00.850Z",
+  "title": "Dave Bailey Program",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "accordion",
+    "table",
+    "table",
+    "table",
+    "table",
+    "table"
+  ]
+}

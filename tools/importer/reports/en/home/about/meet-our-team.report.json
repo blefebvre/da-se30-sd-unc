@@ -1,0 +1,17 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/about/meet-our-team.html",
+  "path": "en/home/about/meet-our-team",
+  "timestamp": "2026-10-02T23:53:01.149Z",
+  "title": "Meet Our Team",
+  "template": "program-detail",
+  "blocks": [
+    "tabs",
+    "cards-booking",
+    "cards-booking",
+    "cards-booking",
+    "cards-booking",
+    "cards-booking",
+    "cards-booking"
+  ]
+}

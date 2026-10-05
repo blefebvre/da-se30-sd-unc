@@ -1,0 +1,186 @@
+/*
+ * carousel
+ * Single-slide image carousel centered at ~8/12 of the 1200 grid. Images keep
+ * their natural ratio (infographics and photos). Thin chevron arrows overlay
+ * the slide sides (vertically centered); hollow circle dots (active filled
+ * black) overlay the bottom edge of the slide.
+ */
+.carousel {
+  max-width: 800px;
+  margin: 24px auto;
+}
+
+.carousel .carousel-slides-container {
+  position: relative;
+}
+
+.carousel .carousel-slides,
+.carousel .carousel-slide-indicators {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.carousel .carousel-slides {
+  display: flex;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  overflow: scroll clip;
+  scrollbar-width: none;
+}
+
+.carousel .carousel-slides::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel .carousel-slide {
+  position: relative;
+  display: flex;
+  flex: 0 0 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  scroll-snap-align: start;
+}
+
+.carousel .carousel-slide-image {
+  width: 100%;
+  line-height: 0;
+}
+
+.carousel .carousel-slide-image picture {
+  display: block;
+}
+
+.carousel .carousel-slide-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* optional text content sits over the image (bottom-left) */
+.carousel .carousel-slide-content {
+  position: absolute;
+  bottom: 48px;
+  left: 48px;
+  z-index: 1;
+  max-width: calc(100% - 96px);
+  padding: 16px;
+  background-color: rgb(0 0 0 / 60%);
+  color: #fff;
+}
+
+.carousel .carousel-slide-content :is(h1, h2, h3, h4, h5, h6, p, li) {
+  color: inherit;
+}
+
+/* arrows */
+.carousel .carousel-navigation-buttons {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  left: 0;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.carousel .carousel-navigation-buttons button {
+  position: relative;
+  width: 40px;
+  height: 48px;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 0;
+  background: none;
+  color: #fff;
+  cursor: pointer;
+  pointer-events: auto;
+  filter: drop-shadow(0 0 2px rgb(0 0 0 / 60%));
+}
+
+.carousel .carousel-navigation-buttons button::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: calc(50% + 3px);
+  width: 12px;
+  height: 12px;
+  border: solid currentcolor;
+  border-width: 2px 2px 0 0;
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+.carousel .carousel-navigation-buttons button.slide-next::after {
+  left: calc(50% - 3px);
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+.carousel .carousel-navigation-buttons button:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: -2px;
+}
+
+/* dots */
+.carousel .carousel-slide-indicators-nav {
+  position: absolute;
+  right: 0;
+  bottom: 8px;
+  left: 0;
+  z-index: 2;
+}
+
+.carousel .carousel-slide-indicators {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 6px 14px;
+  padding: 0 48px;
+  line-height: 0;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.carousel .carousel-slide-indicator button {
+  box-sizing: border-box;
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  border: 1px solid #000;
+  border-radius: 50%;
+  padding: 0;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+.carousel .carousel-slide-indicator button:disabled,
+.carousel .carousel-slide-indicator button[aria-current="true"] {
+  background-color: #000;
+  cursor: default;
+}
+
+.carousel .carousel-slide-indicator button:hover,
+.carousel .carousel-slide-indicator button:focus-visible {
+  border-color: #000;
+  background-color: #666;
+}
+
+@media (width < 600px) {
+  .carousel .carousel-slide-indicators {
+    gap: 6px 8px;
+  }
+
+  .carousel .carousel-slide-indicator button {
+    width: 10px;
+    height: 10px;
+  }
+
+  .carousel .carousel-slide-content {
+    position: static;
+    max-width: none;
+  }
+}

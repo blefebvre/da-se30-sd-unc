@@ -1,0 +1,20 @@
+{
+  "variantName": "embed",
+  "baseBlock": "embed",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "video / iframe embed",
+    "structure": "responsive iframe",
+    "notes": "Block Collection embed (YouTube, Vimeo, X, generic iframe fallback), lazy-loaded via IntersectionObserver or click-to-play with a placeholder image. Fills its container width; videos 16:9, generic iframes fixed height (600px mobile / 900px from 768px)."
+  },
+  "contentPattern": "1 row [optional placeholder image + embed URL link]",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

@@ -1,0 +1,14 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/about.html",
+  "path": "en/home/about",
+  "timestamp": "2026-10-02T23:54:14.255Z",
+  "title": "About USTA National Campus",
+  "template": "landing",
+  "blocks": [
+    "hero-overlay",
+    "cards-feature",
+    "columns-media",
+    "columns-gallery"
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/watch.html",
+  "path": "en/home/watch",
+  "timestamp": "2026-10-02T23:54:51.399Z",
+  "title": "Watch",
+  "template": "landing",
+  "blocks": [
+    "hero-overlay",
+    "hero-overlay"
+  ]
+}

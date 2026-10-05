@@ -1,0 +1,135 @@
+/*
+ * embed
+ * Mirrors the source AEM embed (YouTube) and iframetext (generic iframe)
+ * components, measured at 375 / 768 / 1440:
+ * - width: fills its column inside the source containers (336 / 720 / 1200,
+ *   6px gutters) -> 324px (<768), 708px (768-991), full width minus the 6px
+ *   gutters from 992px (1188px at 1200). In a 2-column section it is the
+ *   column width (588px at 1440).
+ * - YouTube / Vimeo: width 100%, fixed author height 185px / 398px / 335px
+ *   (<768 / 768-991 / >=992), column padding 8px above, 8px + 7px (inline
+ *   iframe baseline gap) below.
+ * - generic iframe (ioncourt live results): 900px tall at every width,
+ *   36px above (8px container + 8px column + 20px alignment padding) and
+ *   73px below (7px gap + 30px spacer + 20px + 8px + 8px).
+ */
+.embed {
+  --embed-video-height: 185px;
+
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 324px;
+  margin: 8px auto 15px;
+  text-align: center;
+}
+
+/* reserve the frame height before the lazy embed is inserted */
+.embed.embed-youtube,
+.embed.embed-vimeo {
+  min-height: var(--embed-video-height);
+}
+
+.embed.embed-generic {
+  min-height: 900px;
+  margin-top: 36px;
+  margin-bottom: 73px;
+}
+
+.embed > div {
+  display: flex;
+  justify-content: center;
+}
+
+.embed .embed-frame {
+  width: 100%;
+}
+
+.embed .embed-frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.embed .embed-frame-video {
+  height: var(--embed-video-height);
+}
+
+.embed .embed-frame-generic {
+  height: 900px;
+}
+
+.embed.embed-twitter {
+  min-height: 0;
+}
+
+.embed.embed-twitter .twitter-tweet-rendered {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.embed .embed-placeholder {
+  position: relative;
+  width: 100%;
+  height: var(--embed-video-height);
+  cursor: pointer;
+}
+
+.embed .embed-placeholder > * {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.embed .embed-placeholder picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.embed .embed-placeholder-play button {
+  box-sizing: border-box;
+  position: relative;
+  display: block;
+  width: 22px;
+  height: 22px;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  padding: 0;
+  background: rgb(0 0 0 / 40%);
+  color: #fff;
+  transform: scale(3);
+  cursor: pointer;
+}
+
+.embed .embed-placeholder-play button::before {
+  content: "";
+  position: absolute;
+  top: 4px;
+  left: 7px;
+  box-sizing: border-box;
+  display: block;
+  width: 0;
+  height: 10px;
+  border-top: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  border-left: 6px solid;
+}
+
+@media (width >= 768px) {
+  .embed {
+    --embed-video-height: 398px;
+
+    max-width: 708px;
+  }
+}
+
+@media (width >= 992px) {
+  .embed {
+    --embed-video-height: 335px;
+
+    max-width: calc(var(--content-max-width) - 12px);
+  }
+}

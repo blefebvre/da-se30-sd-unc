@@ -1,0 +1,20 @@
+{
+  "variantName": "carousel",
+  "baseBlock": "carousel",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "minimal",
+    "purpose": "image-slideshow",
+    "structure": "single-slide carousel with prev/next + dot indicators",
+    "notes": "Block Collection carousel. ~800px wide centered, images at natural ratio (infographics or photos), thin chevron arrows over the slide sides, hollow circle dots (active filled black) over the bottom edge. Image-only slides render without a text overlay. No autoplay."
+  },
+  "contentPattern": "N rows x 1-2 cells [image | optional text]",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

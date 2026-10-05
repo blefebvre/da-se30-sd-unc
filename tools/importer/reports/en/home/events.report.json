@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/events.html",
+  "path": "en/home/events",
+  "timestamp": "2026-10-02T23:54:26.523Z",
+  "title": "Events",
+  "template": "landing",
+  "blocks": [
+    "cards-mosaic",
+    "cards-mosaic",
+    "cards-programs"
+  ]
+}

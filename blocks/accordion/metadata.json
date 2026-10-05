@@ -1,0 +1,20 @@
+{
+  "variantName": "accordion",
+  "baseBlock": "accordion",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light (transparent bg so section colour shows)",
+    "density": "comfortable",
+    "purpose": "faq / collapsible details",
+    "structure": "stacked details/summary",
+    "notes": "Block Collection accordion (details/summary). No borders, semibold black titles, chevron on the right rotates when open, ~16px gap between items. Multiple items may be open. Body accepts paragraphs, lists, links, bold labels and headings."
+  },
+  "contentPattern": "N rows x 2 cells [title | body]",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

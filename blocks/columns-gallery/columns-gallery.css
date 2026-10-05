@@ -1,0 +1,218 @@
+/*
+ * columns-gallery
+ * Events collage: green CTA tile (3/12) + thumbnail grid (6/12) + tall photo
+ * (3/12), vertically centred in one row from 768px; stacked below.
+ * Values measured from source (#container-a7816931a9) computed styles.
+ * Source container: 336px centred (< 768), 720px centred (768-991),
+ * full width up to 1200px (>= 992). Source columns use 6px side gutters
+ * and 8px vertical padding (AEM grid).
+ */
+.columns-gallery {
+  /* source: 8px AEM grid column padding between intro copy and the tile */
+  padding-top: 8px;
+  margin-inline: max(-24px, calc((100% - 336px) / 2));
+}
+
+.columns-gallery .columns-gallery-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-gallery .columns-gallery-row > div {
+  box-sizing: border-box;
+  min-width: 0;
+}
+
+/* CTA tile: 3-column inner grid (6px gutters) like the source AEM grid */
+.columns-gallery .columns-gallery-cta {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 12px;
+  align-content: start;
+  padding: 9px 6px 17px;
+  background-color: #a4ee90;
+  color: #000;
+  text-align: center;
+  cursor: pointer;
+}
+
+.columns-gallery .columns-gallery-cta > * {
+  grid-column: 1 / -1;
+  margin: 0;
+}
+
+.columns-gallery .columns-gallery-cta h2,
+.columns-gallery .columns-gallery-cta h3 {
+  padding: 8px 0;
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.columns-gallery .columns-gallery-cta .columns-gallery-cta-icon {
+  grid-column: 2;
+  padding: 8px 0;
+  line-height: 0;
+}
+
+.columns-gallery .columns-gallery-cta-icon picture {
+  display: block;
+}
+
+.columns-gallery .columns-gallery-cta-icon img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* 9px separator above the action row */
+.columns-gallery .columns-gallery-cta .columns-gallery-cta-action {
+  margin-top: 9px;
+}
+
+/* mobile: label 7/12 (offset 20px), arrow column 3/12 (offset 20px);
+   tile width = link width + 14px margin + 2 x 6px padding */
+.columns-gallery .columns-gallery-cta a.columns-gallery-cta-link:any-link {
+  display: grid;
+  grid-template-columns:
+    calc((100% + 26px) * 7 / 12 - 12px)
+    calc((100% + 26px) * 3 / 12 - 12px);
+  column-gap: 40px;
+  align-items: center;
+  margin-left: 14px;
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  text-decoration: none;
+}
+
+/* whole tile is clickable, as on the source */
+.columns-gallery .columns-gallery-cta a.columns-gallery-cta-link:any-link::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.columns-gallery .columns-gallery-cta-label {
+  padding: 8px 0;
+}
+
+.columns-gallery .columns-gallery-cta-arrow {
+  display: block;
+  width: 50%;
+  margin: 8px 0;
+  aspect-ratio: 35.977 / 29.402;
+  background: no-repeat center / contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 35.977 29.402'%3E%3Cg transform='translate(-306.937 -2980.035)'%3E%3Cpath d='M13.478,15.6a1.116,1.116,0,0,1,1.578,1.578L8.481,23.756a1.111,1.111,0,0,1-.789.351.952.952,0,0,1-.789-.351L.329,17.181a1.111,1.111,0,0,1,0-1.578,1.306,1.306,0,0,1,.789-.351,1.071,1.071,0,0,1,.789.351L6.64,20.337V1.052A1.066,1.066,0,0,1,7.692,0a1.218,1.218,0,0,1,1.14,1.052V20.337Z' transform='translate(307.437 3002.428) rotate(-90)' stroke='%23000' stroke-width='1'/%3E%3Cpath d='M22.967,29.542H5.435A5.481,5.481,0,0,1,0,24.019V5.435A5.462,5.462,0,0,1,5.435,0H8.766A1.066,1.066,0,0,1,9.818,1.052,1.131,1.131,0,0,1,8.766,2.1H5.435A3.33,3.33,0,0,0,2.1,5.435V24.019A3.33,3.33,0,0,0,5.435,27.35H22.967A3.33,3.33,0,0,0,26.3,24.019V5.435A3.33,3.33,0,0,0,22.967,2.1H19.636a1.066,1.066,0,0,1-1.052-1.052A1.131,1.131,0,0,1,19.636,0h3.331A5.462,5.462,0,0,1,28.4,5.435V24.019A5.481,5.481,0,0,1,22.967,29.542Z' transform='translate(312.872 3008.937) rotate(-90)' stroke='%23000' stroke-width='1'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+.columns-gallery .columns-gallery-cta:focus-within {
+  outline: 2px solid #000;
+  outline-offset: 2px;
+}
+
+/* thumbnail grid: 2 columns, items with 8px / 6px gutters */
+.columns-gallery .columns-gallery-grid {
+  padding: 8px 6px;
+}
+
+.columns-gallery .columns-gallery-grid-inner {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+}
+
+.columns-gallery .columns-gallery-thumb {
+  padding: 8px 6px;
+  line-height: 0;
+}
+
+.columns-gallery .columns-gallery-thumb picture {
+  display: block;
+}
+
+.columns-gallery .columns-gallery-feature picture {
+  display: block;
+  height: 100%;
+}
+
+.columns-gallery .columns-gallery-thumb img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* tall photo: background-size: cover on the source */
+.columns-gallery .columns-gallery-feature {
+  height: 185px;
+  line-height: 0;
+}
+
+.columns-gallery .columns-gallery-feature img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+@media (width >= 768px) {
+  .columns-gallery {
+    margin-inline: calc((100% - 720px) / 2);
+  }
+
+  .columns-gallery .columns-gallery-row {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .columns-gallery .columns-gallery-cta,
+  .columns-gallery .columns-gallery-feature {
+    flex: 0 0 25%;
+  }
+
+  .columns-gallery .columns-gallery-grid {
+    flex: 1 1 0;
+  }
+
+  .columns-gallery .columns-gallery-cta {
+    padding-bottom: 23px;
+  }
+
+  .columns-gallery .columns-gallery-cta a.columns-gallery-cta-link:any-link {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    column-gap: 12px;
+    margin-left: 0;
+  }
+
+  .columns-gallery .columns-gallery-cta-label {
+    grid-column: span 2;
+  }
+
+  .columns-gallery .columns-gallery-feature {
+    height: 427px;
+  }
+}
+
+@media (width >= 992px) {
+  .columns-gallery {
+    margin-inline: max(-6px, calc((100% - 1200px) / 2));
+  }
+
+  .columns-gallery .columns-gallery-cta {
+    padding-bottom: 17px;
+  }
+
+  .columns-gallery .columns-gallery-grid-inner {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .columns-gallery .columns-gallery-feature {
+    height: 313px;
+  }
+}

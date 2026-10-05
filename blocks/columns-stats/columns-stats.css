@@ -1,0 +1,57 @@
+/*
+ * Columns Stats — values from source computed styles (ustanationalcampus.com home):
+ * outer container 8px 0 + inner .cmp-container padding 16px 12px (mobile) / 32px 12px (>=768),
+ * each stat column: container padding 8px 0, inner padding 0 12px, text margin 0 6px + padding 8px 0
+ * => cell padding 16px 18px. 2 columns < 768px, 4 equal columns >= 768px.
+ */
+.columns-stats {
+  padding: 24px 12px;
+}
+
+.columns-stats > .columns-stats-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.columns-stats .columns-stats-item,
+.columns-stats .columns-stats-empty {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 16px 18px;
+  text-align: center;
+}
+
+/* number: H2 Graphik XXCond Bold, 44px/48.4px mobile, 76px/83.6px >= 768 (brand token) */
+.columns-stats .columns-stats-value {
+  margin: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-xl);
+  line-height: 1.1;
+}
+
+/* label: source H5 Graphik Semibold, 20px/22px mobile, 22px/24.2px >= 768, margin 10px 0 */
+main .columns-stats .columns-stats-label {
+  margin: 10px 0;
+  color: #000;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--heading-font-size-s);
+  line-height: 1.1;
+}
+
+.columns-stats.columns-stats-1-cols > .columns-stats-row {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (width >= 768px) {
+  .columns-stats {
+    padding: 40px 12px;
+  }
+
+  .columns-stats > .columns-stats-row {
+    grid-template-columns: none;
+    grid-auto-columns: minmax(0, 1fr);
+    grid-auto-flow: column;
+  }
+}

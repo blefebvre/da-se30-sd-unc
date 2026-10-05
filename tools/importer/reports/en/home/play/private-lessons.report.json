@@ -1,0 +1,19 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/private-lessons.html",
+  "path": "en/home/play/private-lessons",
+  "timestamp": "2026-10-02T23:51:28.063Z",
+  "title": "Private Lesson",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "columns-split",
+    "columns-split",
+    "columns-media",
+    "accordion",
+    "accordion",
+    "table",
+    "table",
+    "table"
+  ]
+}

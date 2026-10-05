@@ -1,0 +1,153 @@
+/*
+ * tabs
+ * default: full-width strip of equal-width uppercase semibold labels over a
+ *   4px light rule; the active tab gets a 4px black bar. Below 768px the
+ *   strip is replaced by a native select (as on the source).
+ * pills: centered pill buttons (active = solid black, inactive = outlined),
+ *   shown at every width and wrapping on small screens.
+ */
+.tabs {
+  --tabs-rule-color: #dcdfcf;
+  --tabs-active-color: #000;
+
+  margin: 24px 0;
+}
+
+/* mobile select (default style only) */
+.tabs .tabs-select {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: 48px;
+  margin: 0;
+  border: 1px solid #000;
+  border-radius: 0;
+  padding: 10px 40px 10px 12px;
+  appearance: none;
+  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M0 0h12L6 8z' fill='%23000'/%3E%3C/svg%3E") no-repeat right 14px center;
+  color: #000;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  cursor: pointer;
+}
+
+.tabs .tabs-list {
+  display: none;
+}
+
+.tabs .tabs-tab {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  padding: 12px 16px;
+  background: none;
+  color: #000;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--body-font-size-m);
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: normal;
+  cursor: pointer;
+}
+
+.tabs .tabs-tab p {
+  margin: 0;
+  color: inherit;
+  font: inherit;
+}
+
+.tabs .tabs-tab:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: -2px;
+}
+
+.tabs .tabs-panels {
+  padding-top: 32px;
+}
+
+.tabs .tabs-panel[hidden] {
+  display: none;
+}
+
+.tabs .tabs-panel:focus-visible {
+  outline: 2px solid var(--brand-blue);
+  outline-offset: 4px;
+}
+
+/* moved section wrappers keep their own block layout; no extra gutter */
+.tabs .tabs-panel > div:not(.tabs-panel-content) {
+  max-width: none;
+  margin: 0;
+  padding: 0;
+}
+
+.tabs .tabs-panel > * + * {
+  margin-top: 24px;
+}
+
+@media (width >= 768px) {
+  .tabs .tabs-select {
+    display: none;
+  }
+
+  .tabs .tabs-list {
+    display: flex;
+    max-width: 100%;
+    overflow-x: auto;
+
+    /* inset rule so the active bar (tab border) paints over it unclipped */
+    box-shadow: inset 0 -4px 0 var(--tabs-rule-color);
+  }
+
+  .tabs .tabs-tab {
+    flex: 1 1 0;
+    min-width: max-content;
+    border-bottom: 4px solid transparent;
+  }
+
+  .tabs .tabs-tab[aria-selected="true"] {
+    border-bottom-color: var(--tabs-active-color);
+    cursor: default;
+  }
+}
+
+/* pills */
+.tabs.pills .tabs-select {
+  display: none;
+}
+
+.tabs.pills .tabs-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px 30px;
+  overflow: visible;
+  box-shadow: none;
+}
+
+.tabs.pills .tabs-tab {
+  flex: 0 1 auto;
+  min-width: 0;
+  min-height: 56px;
+  margin: 0;
+  border: 2px solid var(--tabs-active-color);
+  border-radius: 9999px;
+  padding: 14px 30px;
+  background-color: #fff;
+  color: #000;
+  letter-spacing: 1px;
+}
+
+.tabs.pills .tabs-tab[aria-selected="true"] {
+  background-color: var(--tabs-active-color);
+  color: #fff;
+  cursor: default;
+}
+
+.tabs.pills .tabs-tab:focus-visible {
+  outline-offset: 2px;
+}

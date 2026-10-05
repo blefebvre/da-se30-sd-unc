@@ -1,0 +1,21 @@
+{
+  "variantName": "columns-gallery",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light green CTA tile (#A4EE90)",
+    "density": "tight",
+    "purpose": "events-photo-collage-with-cta",
+    "imagePattern": "photo-grid",
+    "structure": "green CTA tile (3/12) + 3x2 thumbnail grid (6/12) + tall photo (3/12)",
+    "notes": "whole green tile clickable (link to calendar); CTA heading condensed, centered; VIEW CALENDAR bold with arrow icon. Stack on mobile."
+  },
+  "contentPattern": "1 row, 3 cells [CTA: H3 + calendar icon image + link | 6 photos | 1 tall photo]",
+  "usage": {
+    "pagesUsing": ["https://www.ustanationalcampus.com/en/home/about.html"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

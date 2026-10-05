@@ -1,0 +1,157 @@
+/*
+ * columns-media
+ * Text + image side by side (source: AEM 12-col grid, 6px column gutters,
+ * 8px column padding). Container widths 336 / 720 / 1200, two columns from
+ * 992px. Below 992px:
+ *  - default: the image is hidden (source image is desktop-only)
+ *  - .columns-media-has-cta: the image stacks above the text, the block
+ *    gets 16px / 32px vertical padding and columns centre on desktop.
+ */
+
+/* container widths follow the source grid (cells carry the 6px gutters) */
+main > .section > .columns-media-wrapper {
+  max-width: 336px;
+  padding: 0;
+}
+
+.columns-media .columns-media-row {
+  display: flex;
+  flex-direction: column;
+}
+
+.columns-media .columns-media-text,
+.columns-media .columns-media-image {
+  min-width: 0;
+  margin: 0 6px;
+  padding: 8px 0;
+}
+
+.columns-media .columns-media-text h2,
+.columns-media .columns-media-text h3 {
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.columns-media .columns-media-text p {
+  margin: 0;
+  color: #000;
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+/* the source separates paragraphs with an empty 24px paragraph */
+.columns-media .columns-media-text p + p {
+  margin-top: 24px;
+}
+
+/* CTA: black pill, 280px wide, centred under the text */
+.columns-media .columns-media-text p.columns-media-cta {
+  margin: 40px 0 0;
+  text-align: center;
+}
+
+.columns-media .columns-media-text a.button:any-link {
+  box-sizing: border-box;
+  min-width: 280px;
+  height: 56px;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  padding: 14px;
+  background-color: #000;
+  color: #fff;
+  font-family: var(--body-semibold-font-family);
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: normal;
+  text-transform: uppercase;
+}
+
+.columns-media .columns-media-text a.button:hover,
+.columns-media .columns-media-text a.button:focus-visible {
+  border-color: transparent;
+  background-color: #000;
+  color: #fff;
+}
+
+.columns-media .columns-media-image {
+  display: none;
+  line-height: 0;
+}
+
+.columns-media .columns-media-image picture {
+  display: block;
+}
+
+.columns-media .columns-media-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/*
+ * CTA layout: image first on mobile/tablet, 8px container padding around text.
+ * Block padding = source cmp-container padding (16px / 32px) plus the
+ * spacing of its wrapping grid column (margin 16px / 32px + padding 8px).
+ */
+.columns-media.columns-media-has-cta {
+  padding: 40px 0;
+}
+
+.columns-media.columns-media-has-cta .columns-media-image {
+  display: block;
+  order: -1;
+}
+
+.columns-media.columns-media-has-cta .columns-media-text {
+  padding: 16px 0;
+}
+
+@media (width >= 768px) {
+  main > .section > .columns-media-wrapper {
+    max-width: 720px;
+  }
+
+  .columns-media.columns-media-has-cta {
+    padding: 72px 0;
+  }
+}
+
+@media (width >= 992px) {
+  main > .section > .columns-media-wrapper {
+    max-width: var(--content-max-width);
+    padding: 0 12px;
+  }
+
+  .columns-media .columns-media-row {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .columns-media .columns-media-row > div {
+    flex: 0 0 calc(50% - 12px);
+  }
+
+  .columns-media .columns-media-image {
+    display: block;
+  }
+
+  .columns-media .columns-media-single > div {
+    flex-basis: calc(100% - 12px);
+  }
+
+  .columns-media.columns-media-has-cta .columns-media-row {
+    align-items: center;
+  }
+
+  .columns-media.columns-media-has-cta .columns-media-text {
+    margin: 0 9px;
+  }
+
+  .columns-media.columns-media-has-cta .columns-media-image {
+    order: 0;
+    margin: 0 3px;
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/tennis/summer-camps.html",
+  "path": "en/home/play/tennis/summer-camps",
+  "timestamp": "2026-10-02T23:52:03.320Z",
+  "title": "Summer Camps",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "tabs",
+    "columns-media",
+    "accordion",
+    "carousel"
+  ]
+}

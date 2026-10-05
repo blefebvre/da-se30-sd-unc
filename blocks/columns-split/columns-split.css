@@ -1,0 +1,300 @@
+/*
+ * columns-split
+ * Full-bleed split: cover image + solid colored text panel.
+ * Values measured from the source (.cmp-container split rows on ustanationalcampus.com).
+ *
+ * default (stone #dcdfcf): image 272px tall (<768) / 528px (>=768); stacked
+ *   below 992px, 50/50 from 992px. Text column centered, 5/12 of the grid.
+ * teal: image 208px (<768) / 416px (>=768); 50/50 from 768px. Below 768px
+ *   the image keeps half the width above the full-width panel (as on source).
+ */
+.columns-split-container .columns-split-wrapper {
+  max-width: none;
+  padding: 0;
+}
+
+.columns-split {
+  --columns-split-panel-bg: #dcdfcf;
+  --columns-split-media-height: 272px;
+
+  background-color: var(--columns-split-panel-bg);
+}
+
+.columns-split.teal {
+  --columns-split-panel-bg: var(--brand-teal);
+  --columns-split-media-height: 208px;
+}
+
+/* layout */
+.columns-split .columns-split-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.columns-split .columns-split-row > div {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+.columns-split .columns-split-media {
+  height: var(--columns-split-media-height);
+  line-height: 0;
+}
+
+.columns-split .columns-split-media picture {
+  display: block;
+  height: 100%;
+}
+
+.columns-split .columns-split-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+.columns-split .columns-split-panel {
+  padding: 32px 12px;
+  color: #000;
+}
+
+.columns-split .columns-split-panel-inner {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* teal: half-width image row, offset 10/12 text column */
+.columns-split.teal .columns-split-row > .columns-split-media {
+  flex-basis: 50%;
+}
+
+.columns-split.teal .columns-split-panel {
+  padding: 16px 0 16px 12px;
+}
+
+.columns-split.teal .columns-split-panel-inner {
+  width: calc(100% * 10 / 12 - 12px);
+  margin-left: calc(100% / 12 + 6px);
+}
+
+/* typography */
+.columns-split .columns-split-panel h2 {
+  margin: 0;
+  color: #000;
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  line-height: 1.1;
+}
+
+.columns-split.teal .columns-split-panel h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.columns-split .columns-split-panel h3,
+.columns-split .columns-split-panel h4 {
+  margin: 10px 0;
+  color: #000;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--heading-font-size-s);
+  line-height: 1.1;
+}
+
+.columns-split .columns-split-panel p {
+  margin: 0;
+  color: #000;
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+.columns-split .columns-split-panel ul,
+.columns-split .columns-split-panel ol {
+  margin: 0 0 10px;
+  padding-left: 40px;
+}
+
+.columns-split .columns-split-panel li {
+  color: #000;
+  font-size: 18px;
+  line-height: 24px;
+}
+
+.columns-split .columns-split-panel li p {
+  font-size: inherit;
+}
+
+.columns-split .columns-split-panel li > ul,
+.columns-split .columns-split-panel li > ol {
+  margin: 0;
+  padding-left: 40px;
+}
+
+.columns-split .columns-split-panel li > ul {
+  list-style-type: circle;
+}
+
+/* button (source .cmp-button.button-core--large: black pill, no hover change) */
+.columns-split .columns-split-panel p.button-wrapper,
+.columns-split .columns-split-panel p.button-container {
+  margin: 16px 0 0;
+}
+
+/* source: mobile button column spans the full 12/12 grid, centered */
+.columns-split.teal .columns-split-panel p.button-wrapper,
+.columns-split.teal .columns-split-panel p.button-container {
+  margin: 16px calc((100% + 12px) / -10) 0;
+  text-align: center;
+}
+
+.columns-split .columns-split-panel a.button:any-link,
+.columns-split .columns-split-panel a.button:hover,
+.columns-split .columns-split-panel a.button:focus-visible {
+  width: 100%;
+  max-width: 280px;
+  min-height: 56px;
+  padding: 14px;
+  border: 2px solid transparent;
+  border-radius: 9999px;
+  background-color: #000;
+  color: #fff;
+  font-family: var(--body-semibold-font-family);
+  font-size: 18px;
+  line-height: 20px;
+  letter-spacing: normal;
+  text-transform: uppercase;
+  white-space: normal;
+}
+
+@media (width >= 768px) {
+  .columns-split {
+    --columns-split-media-height: 528px;
+  }
+
+  .columns-split.teal {
+    --columns-split-media-height: 416px;
+  }
+
+  .columns-split:not(.teal) .columns-split-panel {
+    padding: 48px 12px;
+  }
+
+  /* teal goes side by side from 768px */
+  .columns-split.teal .columns-split-row {
+    flex-wrap: nowrap;
+  }
+
+  .columns-split.teal .columns-split-row > div {
+    flex-basis: 50%;
+  }
+
+  .columns-split.teal .columns-split-panel-inner {
+    width: calc(100% * 5 / 6 - 12px);
+    margin-left: 6px;
+  }
+
+  .columns-split.teal .columns-split-panel p.button-wrapper,
+  .columns-split.teal .columns-split-panel p.button-container {
+    margin: 16px 0 0;
+    text-align: left;
+  }
+
+  .columns-split .columns-split-panel a.button:any-link,
+  .columns-split .columns-split-panel a.button:hover,
+  .columns-split .columns-split-panel a.button:focus-visible {
+    width: auto;
+    max-width: none;
+    min-width: 280px;
+  }
+}
+
+@media (width >= 992px) {
+  /* default (stone) goes side by side from 992px */
+  .columns-split .columns-split-row {
+    flex-wrap: nowrap;
+  }
+
+  .columns-split .columns-split-row > div {
+    flex-basis: 50%;
+  }
+
+  .columns-split:not(.teal) .columns-split-panel {
+    padding: 48px 6px;
+  }
+
+  .columns-split:not(.teal) .columns-split-panel-inner {
+    width: calc(100% * 5 / 6 - 12px);
+    margin: 0 auto;
+  }
+}
+
+/* no image authored: panel spans the full width */
+.columns-split .columns-split-row.columns-split-no-media > .columns-split-panel {
+  flex-basis: 100%;
+}
+
+/*
+ * orange (#f0aa54) / clay (#c15642): solid panel, text left-aligned with an
+ * 18px inset, image cell on either side (DOM order). Stacked in authored
+ * order below 992px (image 208px / 416px tall), 50/50 from 992px with the
+ * image stretching to the row height (min 416px).
+ * clay: white body text and links; the H2 stays black (as on the source).
+ */
+.columns-split.orange {
+  --columns-split-panel-bg: #f0aa54;
+  --columns-split-media-height: 208px;
+}
+
+.columns-split.clay {
+  --columns-split-panel-bg: #c15642;
+  --columns-split-media-height: 208px;
+}
+
+/* stylelint-disable-next-line no-descending-specificity */
+.columns-split:is(.orange, .clay) .columns-split-panel {
+  padding: 30px 18px 32px;
+}
+
+.columns-split.clay .columns-split-panel :is(p, li, a:not(.button)) {
+  color: #fff;
+}
+
+@media (width >= 768px) {
+  .columns-split:is(.orange, .clay) {
+    --columns-split-media-height: 416px;
+  }
+
+  .columns-split:is(.orange, .clay) .columns-split-panel {
+    padding: 40px 18px;
+  }
+}
+
+@media (width >= 992px) {
+  .columns-split:is(.orange, .clay) .columns-split-row {
+    align-items: stretch;
+  }
+
+  .columns-split:is(.orange, .clay) .columns-split-media {
+    position: relative;
+    height: auto;
+    min-height: var(--columns-split-media-height);
+  }
+
+  .columns-split:is(.orange, .clay) .columns-split-media picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  /* stylelint-disable-next-line no-descending-specificity */
+  .columns-split:is(.orange, .clay) .columns-split-panel {
+    display: flex;
+    align-items: center;
+    padding: 48px 18px;
+  }
+
+  .columns-split:is(.orange, .clay) .columns-split-panel-inner {
+    width: 100%;
+    margin: 0;
+  }
+}

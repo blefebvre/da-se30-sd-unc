@@ -1,0 +1,24 @@
+{
+  "variantName": "cards-programs",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "program-listing",
+    "imagePattern": "top-landscape-image",
+    "structure": "image + heading + description + link",
+    "notes": "4-col grid, 2 rows; text links underlined blue; one solid blue promo card with white outlined button"
+  },
+  "contentPattern": "2 columns per row: [image | H3 title + description paragraph + 'Learn More' link]. Row 4 = promo: [USTA National Campus logo | heading 'GET STARTED WITH A FREE 30' + text + 'BOOK A FREE SESSION' link (strong -> button)].",
+  "usage": {
+    "pagesUsing": [
+      "https://www.ustanationalcampus.com/en/home.html",
+      "https://www.ustanationalcampus.com/en/home/events.html"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

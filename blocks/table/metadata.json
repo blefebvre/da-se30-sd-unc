@@ -1,0 +1,22 @@
+{
+  "variantName": "table",
+  "baseBlock": "table",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "pricing-table",
+    "structure": "simple 2-col table",
+    "notes": "Block Collection table (thead from first row). White card with 1px light border + subtle shadow, semibold header row, equal columns, ~14px text, ~50px rows. striped = alternating light grey body rows; bordered and no-header from the Block Collection remain available."
+  },
+  "contentPattern": "N rows x M cells; first row header",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [
+    { "class": "striped", "label": "Striped rows" }
+  ],
+  "memberVariantIds": []
+}

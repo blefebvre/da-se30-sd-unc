@@ -1,0 +1,21 @@
+{
+  "variantName": "cards-logos",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "sponsor-logo-wall",
+    "imagePattern": "contained-logos",
+    "structure": "logo grid",
+    "notes": "3 columns at all widths (within ~1000px centered), logos ~200px max-width centered in cells ~200px tall on desktop; whole logo links to the partner site"
+  },
+  "contentPattern": "2 columns per row: [logo image | partner link (link text = partner name, not displayed)]",
+  "usage": {
+    "pagesUsing": ["https://www.ustanationalcampus.com/en/home/about/sponsors---partners.html"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

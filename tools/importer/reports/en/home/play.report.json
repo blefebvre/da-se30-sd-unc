@@ -1,0 +1,12 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play.html",
+  "path": "en/home/play",
+  "timestamp": "2026-10-02T23:54:32.020Z",
+  "title": "Play",
+  "template": "landing",
+  "blocks": [
+    "hero-overlay",
+    "cards-programs"
+  ]
+}

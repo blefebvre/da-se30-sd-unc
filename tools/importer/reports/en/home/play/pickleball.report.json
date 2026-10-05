@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/pickleball.html",
+  "path": "en/home/play/pickleball",
+  "timestamp": "2026-10-02T23:51:17.703Z",
+  "title": "Pickleball",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "tabs",
+    "columns-media",
+    "cards-programs",
+    "accordion"
+  ]
+}

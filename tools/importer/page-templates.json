@@ -1,0 +1,742 @@
+{
+  "metadata": {
+    "projectType": "da"
+  },
+  "templates": [
+    {
+      "name": "home",
+      "urls": [
+        "https://www.ustanationalcampus.com/en/home.html"
+      ],
+      "representativeUrl": "https://www.ustanationalcampus.com/en/home.html",
+      "description": "To be named in naming step",
+      "blocks": [
+        {
+          "name": "hero-overlay",
+          "instances": [
+            "#mainContent > .aem-Grid > .container.padding-top-large.full-width > .cmp-container"
+          ]
+        },
+        {
+          "name": "cards-mosaic",
+          "instances": [
+            "#mainContent > .aem-Grid > .container.full-width-limit.inner_full-height > .cmp-container"
+          ]
+        },
+        {
+          "name": "columns-stats",
+          "instances": [
+            "#mainContent > .aem-Grid > .container.padding-left-triple.full-width-limit > .cmp-container"
+          ]
+        },
+        {
+          "name": "cards-programs",
+          "instances": [
+            "#aa-default-programs"
+          ]
+        }
+      ],
+      "sections": [
+        {
+          "id": "1",
+          "name": "hero",
+          "selector": [
+            "#mainContent > .aem-Grid > .container.padding-top-large.full-width"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-overlay"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "2",
+          "name": "mosaic",
+          "selector": [
+            "#mainContent > .aem-Grid > .container.full-width-limit.inner_full-height"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-mosaic"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "3",
+          "name": "stats",
+          "selector": [
+            "#mainContent > .aem-Grid > .container.padding-left-triple.full-width-limit"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-stats"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "5",
+          "name": "programs",
+          "selector": [
+            "#mainContent > .aem-Grid > .container:has(> #aa-default-programs)"
+          ],
+          "style": "teal-divider",
+          "blocks": [
+            "cards-programs"
+          ],
+          "defaultContent": [
+            "#aa-default-programs > .aem-Grid > .text .cmp-text"
+          ]
+        }
+      ],
+      "urlPattern": "/en/*"
+    },
+    {
+      "name": "landing",
+      "description": "Core-component grid landing pages (hero banners, tile mosaics, card grids, text/image columns, contact/app CTA bands)",
+      "urls": [
+        "https://www.ustanationalcampus.com/en/home/about.html",
+        "https://www.ustanationalcampus.com/en/home/about/sponsors---partners.html",
+        "https://www.ustanationalcampus.com/en/home/events.html",
+        "https://www.ustanationalcampus.com/en/home/play.html",
+        "https://www.ustanationalcampus.com/en/home/calendar.html",
+        "https://www.ustanationalcampus.com/en/home/play/programs.html",
+        "https://www.ustanationalcampus.com/en/home/watch.html",
+        "https://www.ustanationalcampus.com/en/home/play/book-a-court.html",
+        "https://www.ustanationalcampus.com/en/home/about/holiday-hours.html",
+        "https://www.ustanationalcampus.com/en/home/about/usta-national-campus-scholarship.html"
+      ],
+      "representativeUrl": "https://www.ustanationalcampus.com/en/home/events.html",
+      "blocks": [
+        {
+          "name": "hero-overlay",
+          "instances": [
+            "#mainContent .cmp-container[data-desktop-background-image]:not(.cmp-container--clickable):not(:has(.cmp-container--clickable)):has(h1)"
+          ]
+        },
+        {
+          "name": "cards-mosaic",
+          "instances": [
+            "#mainContent .container.full-width-limit.inner_full-height > .cmp-container"
+          ]
+        },
+        {
+          "name": "cards-programs",
+          "instances": [
+            "#aa-default-programs:not(:has(#aa-default-programs))"
+          ]
+        },
+        {
+          "name": "cards-booking",
+          "instances": [
+            "#mainContent .cmp-container:has(> .aem-Grid > .tile.teaser)"
+          ]
+        },
+        {
+          "name": "cards-logos",
+          "instances": [
+            "#mainContent .container.align-items-center > .cmp-container:has(> .aem-Grid > .container > .cmp-container--clickable .image):not(:has(> .aem-Grid > .text))"
+          ]
+        },
+        {
+          "name": "cards-feature",
+          "instances": [
+            "#mainContent > .aem-Grid > .container > .cmp-container:has(> .aem-Grid > .container.full-width > .cmp-container > .aem-Grid > .image ~ .text)"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            "#mainContent .cmp-container:has(> .aem-Grid > .image[class*='aem-GridColumn--mobile--hide'])"
+          ]
+        },
+        {
+          "name": "columns-split",
+          "instances": [
+            "#mainContent .cmp-container[style*='background-color']:has(> .aem-Grid > .container > .cmp-container[data-desktop-background-image]:not(.cmp-container--clickable)):has(> .aem-Grid > .container > .cmp-container .text)"
+          ]
+        },
+        {
+          "name": "columns-gallery",
+          "instances": [
+            "#mainContent .cmp-container:has(> .aem-Grid > .container > .cmp-container--clickable[data-redirect-url] .text):has(> .aem-Grid > .container > .cmp-container > .aem-Grid > .image ~ .image ~ .image ~ .image)"
+          ]
+        }
+      ],
+      "urlPattern": "",
+      "sections": [
+        {
+          "id": "1",
+          "name": "intro",
+          "selector": [
+            "#mainContent > .aem-Grid > .container:first-child"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-overlay",
+            "cards-mosaic"
+          ],
+          "defaultContent": [
+            "#mainContent .text h1",
+            "#aa-default-programs > .aem-Grid > .text .cmp-text",
+            "#mainContent > .aem-Grid > .container > .cmp-container > .aem-Grid > .text .cmp-text"
+          ]
+        },
+        {
+          "id": "2",
+          "name": "icon-heading",
+          "selector": [
+            "#mainContent > .aem-Grid > .container:has(.container--full-width-deep-container > .cmp-container > .aem-Grid > .image + .text h2)"
+          ],
+          "style": "icon-heading",
+          "blocks": [
+            "columns-media",
+            "columns-gallery",
+            "cards-feature"
+          ],
+          "defaultContent": [
+            ".container--full-width-deep-container > .cmp-container > .aem-Grid > .image",
+            ".container--full-width-deep-container > .cmp-container > .aem-Grid > .text h2",
+            ".cmp-container > .aem-Grid > .text .cmp-text p"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "title-rule",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container > .aem-Grid > .title + .separator--background--dusty-clay)"
+          ],
+          "style": "title-rule",
+          "blocks": [
+            "hero-overlay",
+            "cards-booking"
+          ],
+          "defaultContent": [
+            ".title .cmp-title h1",
+            ".text.label-style .cmp-text",
+            ".cmp-container:has(> .aem-Grid > .tile.teaser) > .aem-Grid > .text .cmp-text"
+          ]
+        },
+        {
+          "id": "4",
+          "name": "clay-band",
+          "selector": [
+            "#mainContent > .aem-Grid > .container:has(> .cmp-container[style*='#C15642'])",
+            "#mainContent > .aem-Grid > .container.margin-top-small:has(> .cmp-container > .aem-Grid > .button)"
+          ],
+          "style": "clay",
+          "blocks": [],
+          "defaultContent": [
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "5",
+          "name": "calendar-glance",
+          "selector": [
+            "#mainContent .container:has(> #aa-default-programs > .aem-Grid > .separator--background--dusty-clay)"
+          ],
+          "style": "dusty-clay-divider",
+          "blocks": [
+            "cards-programs"
+          ],
+          "defaultContent": [
+            "#aa-default-programs > .aem-Grid > .text .cmp-text h2",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "6",
+          "name": "sponsors-intro",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container > .aem-Grid > .text ~ .container.align-items-center > .cmp-container > .aem-Grid > .container > .cmp-container--clickable .image)"
+          ],
+          "style": "centered",
+          "blocks": [
+            "cards-logos"
+          ],
+          "defaultContent": [
+            ".cmp-container > .aem-Grid > .text .cmp-text"
+          ]
+        },
+        {
+          "id": "7",
+          "name": "split",
+          "selector": [
+            "#mainContent .cmp-container[style*='background-color']:has(> .aem-Grid > .container > .cmp-container[data-desktop-background-image]:not(.cmp-container--clickable)):has(> .aem-Grid > .container > .cmp-container .text)"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-split"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "8",
+          "name": "centered-cta",
+          "selector": [
+            "#mainContent > .aem-Grid > .container > .cmp-container:not([data-desktop-background-image]) > .aem-Grid > .container:has(> .cmp-container > .aem-Grid > .text ~ .button)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text h1",
+            ".text .cmp-text p",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "9",
+          "name": "gradient",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='linear-gradient'])"
+          ],
+          "style": "gradient",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text h2",
+            ".text .cmp-text h5",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "10",
+          "name": "contact",
+          "selector": [
+            "#mainContent .container.vertical-right-white-stripe.vertical-left-white-stripe:has(a[href^='mailto:'])"
+          ],
+          "style": "contact-band",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text h2",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "11",
+          "name": "app-download",
+          "selector": [
+            "#mainContent .container.container--full-width-deep-container:has(a[href*='apps.apple.com'])"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text p",
+            ".cmp-container--clickable .image a"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "program-detail",
+      "description": "Program/event detail pages with title banner, tabs, accordions, carousels, teasers",
+      "urls": [
+        "https://www.ustanationalcampus.com/en/home/play/davebailey.html",
+        "https://www.ustanationalcampus.com/en/home/play/free30.html",
+        "https://www.ustanationalcampus.com/en/home/play/high-performance.html",
+        "https://www.ustanationalcampus.com/en/home/play/pickleball.html",
+        "https://www.ustanationalcampus.com/en/home/play/play-padel.html",
+        "https://www.ustanationalcampus.com/en/home/play/private-lessons.html",
+        "https://www.ustanationalcampus.com/en/home/play/programs/adult-tennis.html",
+        "https://www.ustanationalcampus.com/en/home/play/programs/junior-tennis-programs.html",
+        "https://www.ustanationalcampus.com/en/home/play/tennis/adult-camps.html",
+        "https://www.ustanationalcampus.com/en/home/play/tennis/adult-red-ball.html",
+        "https://www.ustanationalcampus.com/en/home/play/tennis/junior-programming-welcome-letter.html",
+        "https://www.ustanationalcampus.com/en/home/play/tennis/summer-camps.html",
+        "https://www.ustanationalcampus.com/en/home/watch/save-my-play.html",
+        "https://www.ustanationalcampus.com/en/home/events/2026-bnp-paribas-world-team-cup.html",
+        "https://www.ustanationalcampus.com/en/home/about/meet-our-team.html"
+      ],
+      "representativeUrl": "https://www.ustanationalcampus.com/en/home/play/programs/junior-tennis-programs.html",
+      "blocks": [
+        {
+          "name": "hero-overlay",
+          "instances": [
+            "#mainContent .cmp-container[data-desktop-background-image]:not(.cmp-container--clickable):not(:has(.cmp-container--clickable)):has(h1)"
+          ]
+        },
+        {
+          "name": "columns-split",
+          "instances": [
+            "#mainContent .cmp-container[style*='background-color']:not(:has(h1)):has(> .aem-Grid > .container > .cmp-container[data-desktop-background-image]:not(.cmp-container--clickable)):has(> .aem-Grid > .container > .cmp-container .text)"
+          ]
+        },
+        {
+          "name": "tabs",
+          "instances": [
+            "#mainContent .core-tabs"
+          ]
+        },
+        {
+          "name": "columns-media",
+          "instances": [
+            "#mainContent .cmp-container:has(> .aem-Grid > .image:is(.aem-GridColumn--default--5, .aem-GridColumn--default--6)):has(> .aem-Grid > :is(.text, .container):is(.aem-GridColumn--default--6, .aem-GridColumn--default--7))"
+          ]
+        },
+        {
+          "name": "cards-icons",
+          "instances": [
+            "#mainContent .cmp-container:has(> .aem-Grid > .container.justify-content_space-around:not(.aem-GridColumn--default--12) ~ .container.justify-content_space-around:not(.aem-GridColumn--default--12) ~ .container.justify-content_space-around:not(.aem-GridColumn--default--12))",
+            "#mainContent #aa-default-programs:not(:has(#aa-default-programs)):not(:has(.image))"
+          ]
+        },
+        {
+          "name": "cards-programs",
+          "instances": [
+            "#mainContent #aa-default-programs:not(:has(#aa-default-programs)):has(.image)"
+          ]
+        },
+        {
+          "name": "cards-booking",
+          "instances": [
+            "#mainContent .cmp-container:has(> .aem-Grid > .tile.teaser)"
+          ]
+        },
+        {
+          "name": "accordion",
+          "instances": [
+            "#mainContent .accordion.panelcontainer"
+          ]
+        },
+        {
+          "name": "table",
+          "instances": [
+            "#mainContent div.table"
+          ]
+        },
+        {
+          "name": "carousel",
+          "instances": [
+            "#mainContent div.carousel"
+          ]
+        },
+        {
+          "name": "embed",
+          "instances": [
+            "#mainContent div.embed",
+            "#mainContent div.iframetext:has(iframe)"
+          ]
+        }
+      ],
+      "urlPattern": "",
+      "sections": [
+        {
+          "id": "1",
+          "name": "title-banner",
+          "selector": [
+            "#mainContent > .aem-Grid > .container:first-child"
+          ],
+          "style": null,
+          "blocks": [
+            "hero-overlay",
+            "tabs",
+            "columns-media",
+            "carousel",
+            "accordion",
+            "table",
+            "cards-icons",
+            "cards-programs",
+            "cards-booking"
+          ],
+          "defaultContent": [
+            "#mainContent .text .cmp-text",
+            "#mainContent .button a.cmp-button"
+          ]
+        },
+        {
+          "id": "2",
+          "name": "stone-offerings",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#DCDFCF'] .accordion)"
+          ],
+          "style": "stone",
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": [
+            ".text .cmp-text h2"
+          ]
+        },
+        {
+          "id": "3",
+          "name": "after-offerings",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#DCDFCF'] .accordion) + .container"
+          ],
+          "style": null,
+          "blocks": [
+            "table"
+          ],
+          "defaultContent": [
+            ".text .cmp-text"
+          ]
+        },
+        {
+          "id": "4",
+          "name": "stone-results",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#DCDFCF'] .iframetext)"
+          ],
+          "style": "stone",
+          "blocks": [
+            "embed"
+          ],
+          "defaultContent": [
+            ".text .cmp-text h2",
+            ".text .cmp-text p"
+          ]
+        },
+        {
+          "id": "5",
+          "name": "after-results",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#DCDFCF'] .iframetext) + .container"
+          ],
+          "style": null,
+          "blocks": [
+            "tabs",
+            "cards-icons"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "6",
+          "name": "stone-visit",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='rgba(220,223,207'])"
+          ],
+          "style": "stone",
+          "blocks": [
+            "columns-media"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "7",
+          "name": "have-questions",
+          "selector": [
+            "#mainContent .container:not(.cmp-tabs .container):has(> .cmp-container > .aem-Grid > .text.cmp-text--alignment-center a[href^='mailto:'])"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text",
+            ".image img"
+          ]
+        },
+        {
+          "id": "8",
+          "name": "teal-video",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#92BFB7'] .embed)"
+          ],
+          "style": "teal, media-split",
+          "blocks": [
+            "embed"
+          ],
+          "defaultContent": [
+            ".text .cmp-text"
+          ]
+        },
+        {
+          "id": "9",
+          "name": "after-teal-video",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#92BFB7'] .embed) + .container"
+          ],
+          "style": null,
+          "blocks": [
+            "cards-icons",
+            "carousel",
+            "columns-split"
+          ],
+          "defaultContent": [
+            ".text .cmp-text",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "10",
+          "name": "video",
+          "selector": [
+            "#mainContent .container:not(.cmp-container[style*='#92BFB7'] .container):has(> .cmp-container > .aem-Grid > .embed)"
+          ],
+          "style": "media-split",
+          "blocks": [
+            "embed"
+          ],
+          "defaultContent": [
+            ".text .cmp-text"
+          ]
+        },
+        {
+          "id": "11",
+          "name": "after-video",
+          "selector": [
+            "#mainContent .container:not(.cmp-container[style*='#92BFB7'] .container):has(> .cmp-container > .aem-Grid > .embed) + .container:not(:has(> .cmp-container[style*='#A4EE90']))"
+          ],
+          "style": null,
+          "blocks": [
+            "tabs",
+            "accordion",
+            "cards-booking"
+          ],
+          "defaultContent": []
+        },
+        {
+          "id": "12",
+          "name": "lime-band",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#A4EE90'])"
+          ],
+          "style": "lime, centered",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "13",
+          "name": "after-lime",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#A4EE90']) + .container"
+          ],
+          "style": null,
+          "blocks": [
+            "accordion"
+          ],
+          "defaultContent": [
+            ".text .cmp-text"
+          ]
+        },
+        {
+          "id": "14",
+          "name": "learn-programs",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container > .aem-Grid > .text.cmp-text--banner-button)"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text h2",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "15",
+          "name": "centered-text",
+          "selector": [
+            "#mainContent .container:not(.cmp-tabs .container, .cmp-container[style*='background-color'] .container):not(:has(> .cmp-container[style*='background-color'])):has(> .cmp-container > .aem-Grid > .text:first-child h2[style*='text-align: center'] ~ h5[style*='text-align: center'])"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "16",
+          "name": "contact",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#DCDFCF']):has(a[href^='mailto:']):not(:has(.accordion, .iframetext, .image, table))"
+          ],
+          "style": "contact-band",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text h2",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "17",
+          "name": "membership",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#DCDFCF']):has(.button):not(:has(a[href^='mailto:'], .accordion, .iframetext, .image, [data-desktop-background-image], table))"
+          ],
+          "style": "contact-band",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text",
+            ".button a.cmp-button"
+          ]
+        },
+        {
+          "id": "18",
+          "name": "after-membership",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container[style*='#DCDFCF']):has(.button):not(:has(a[href^='mailto:'], .accordion, .iframetext, .image, [data-desktop-background-image], table)) ~ .container"
+          ],
+          "style": null,
+          "blocks": [
+            "columns-media",
+            "carousel"
+          ],
+          "defaultContent": [
+            ".text .cmp-text"
+          ]
+        },
+        {
+          "id": "19",
+          "name": "app-download",
+          "selector": [
+            "#mainContent .container:has(> .cmp-container > .aem-Grid > .text + .container [data-redirect-url*='apps.apple.com'])"
+          ],
+          "style": "centered",
+          "blocks": [],
+          "defaultContent": [
+            ".text .cmp-text p",
+            ".cmp-container--clickable .image"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "news-article",
+      "description": "Legacy news article (articleTextDetailImageComp)",
+      "urls": [
+        "https://www.ustanationalcampus.com/en/home/news/2019-collegiate-winter-wild-card.html",
+        "https://www.ustanationalcampus.com/en/home/news/campus-pro-shop.html",
+        "https://www.ustanationalcampus.com/en/home/news/masteruhistory.html",
+        "https://www.ustanationalcampus.com/en/home/news/national-campus-program-policies.html"
+      ],
+      "representativeUrl": "https://www.ustanationalcampus.com/en/home/news/masteruhistory.html",
+      "blocks": [],
+      "urlPattern": ""
+    },
+    {
+      "name": "text-article",
+      "description": "Legacy text-only articles (health & wellness, events & leagues)",
+      "urls": [
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/breakfast--the-most-important-meal-of-the-day.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/fluid-loss-and-body-weight.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/hydration-matters.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/macronutrient-breakdown.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/macronutrient-breakdown--carbohydrates.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/nutrition-for-recovery.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/nutrition-for-tennis.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/sleep-matters.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/strength-and-conditioning.html",
+        "https://www.ustanationalcampus.com/en/home/play/events-and-leagues.html"
+      ],
+      "representativeUrl": "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness/hydration-matters.html",
+      "blocks": [],
+      "urlPattern": ""
+    },
+    {
+      "name": "guest-services",
+      "description": "Legacy landing pages built from hospitality/guest-service, campus info, useful info, newsfeed, hero carousel, photo gallery components",
+      "urls": [
+        "https://www.ustanationalcampus.com/en/home/visit.html",
+        "https://www.ustanationalcampus.com/en/home/play/tennis.html",
+        "https://www.ustanationalcampus.com/en/home/visit/health-and-wellness.html",
+        "https://www.ustanationalcampus.com/en/home/visit/sustainability.html",
+        "https://www.ustanationalcampus.com/en/home/events/collegiate.html",
+        "https://www.ustanationalcampus.com/en/home/news.html"
+      ],
+      "representativeUrl": "https://www.ustanationalcampus.com/en/home/visit.html",
+      "blocks": [],
+      "urlPattern": ""
+    }
+  ]
+}

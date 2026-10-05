@@ -1,0 +1,16 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/events/2026-bnp-paribas-world-team-cup.html",
+  "path": "en/home/events/2026-bnp-paribas-world-team-cup",
+  "timestamp": "2026-10-02T23:52:54.255Z",
+  "title": "2026 BNP Paribas World Team Cup",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "tabs",
+    "columns-media",
+    "columns-media",
+    "cards-icons",
+    "embed"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "variantName": "tabs",
+  "baseBlock": "tabs",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "tabbed-content",
+    "structure": "centered tab list + panels",
+    "notes": "Accessible ARIA tabs (role=tablist/tab/tabpanel, aria-selected, arrow/Home/End keys). default = equal-width uppercase labels over a 4px light rule, active tab has a 4px black bar; below 768px a native select replaces the strip. pills = centered pill buttons (active solid black, inactive 2px black outline), wraps on mobile. Panels may be filled from following sections with Section Metadata 'Tab' = label (nested blocks are loaded by the tabs block)."
+  },
+  "contentPattern": "N rows x 2 cells [label | panel content (optional)]; optional following sections with Section Metadata 'Tab' supply rich panel content incl. nested blocks",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [
+    { "class": "pills", "label": "Pill buttons" }
+  ],
+  "memberVariantIds": []
+}

@@ -1,0 +1,182 @@
+/*
+ * cards-feature
+ * Teaser cards: square thumbnail + condensed heading, body copy, text link.
+ * Geometry mirrors the source AEM grid (6px column gutters, 8px column padding,
+ * 32px / 16px row padding). Source containers: 336px (<768), 720px (768-991),
+ * fluid up to 1200px (>=992).
+ * default: 1 col (<768), 2 cols with image above text (768-991),
+ *          2 cols with image left of text (>=992).
+ * wide:    1 card per row, image left (hidden <768).
+ */
+.cards-feature {
+  /* source: the preceding container's bottom padding (16px <768, 48px >=768),
+     which the migrated preceding block does not carry */
+  padding-top: 16px;
+
+  /* source mobile container is 336px, centred (wider than the 24px-padded wrapper) */
+  margin-inline: calc((100% - 336px) / 2);
+}
+
+.cards-feature.wide {
+  padding-top: 0;
+}
+
+.cards-feature > ul {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.cards-feature .cards-feature-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding-top: 16px;
+}
+
+.cards-feature .cards-feature-card-image {
+  margin: 0 6px;
+  padding: 8px 0;
+  line-height: 0;
+}
+
+.cards-feature .cards-feature-card-image picture {
+  display: block;
+  height: 100%;
+}
+
+.cards-feature .cards-feature-card-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.cards-feature .cards-feature-card-body {
+  flex: 1 1 0;
+  min-width: 0;
+  margin: 0 6px;
+  padding: 8px 0;
+}
+
+.cards-feature .cards-feature-card-body h2,
+.cards-feature .cards-feature-card-body h3 {
+  margin: 0;
+  color: var(--heading-color);
+  font-family: var(--heading-font-family);
+  font-size: var(--heading-font-size-l);
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.cards-feature .cards-feature-card-body p {
+  margin: 0;
+  color: #000;
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+/* source separates paragraphs with an empty 24px paragraph */
+.cards-feature .cards-feature-card-body p + p {
+  margin-top: 24px;
+}
+
+.cards-feature .cards-feature-card-body a:any-link:not(.button) {
+  color: var(--link-color);
+  text-decoration: underline;
+}
+
+.cards-feature .cards-feature-card-body a:not(.button):hover,
+.cards-feature .cards-feature-card-body a:not(.button):focus-visible {
+  color: var(--link-hover-color);
+}
+
+/* wide: full-width row, text only on mobile */
+.cards-feature.wide .cards-feature-card {
+  padding-bottom: 8px;
+}
+
+.cards-feature.wide .cards-feature-card-image {
+  display: none;
+}
+
+@media (width >= 768px) {
+  .cards-feature {
+    max-width: 720px;
+    margin-inline: auto;
+    padding-top: 48px;
+  }
+
+  .cards-feature > ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .cards-feature .cards-feature-card {
+    padding-top: 32px;
+  }
+
+  .cards-feature.wide > ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .cards-feature.wide .cards-feature-card {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  /* source: background-image column, 3/12 wide, cover-cropped, flush left */
+  .cards-feature.wide .cards-feature-card-image {
+    display: block;
+    flex: 0 0 25%;
+    height: 306px;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* second wide card on the source sits 8px lower and is taller */
+  .cards-feature.wide .cards-feature-card:nth-child(even) .cards-feature-card-image {
+    height: 541px;
+    padding-top: 8px;
+  }
+
+  .cards-feature.wide .cards-feature-card-image img {
+    height: 100%;
+    aspect-ratio: auto;
+    object-position: 50% 50%;
+  }
+}
+
+@media (width >= 992px) {
+  .cards-feature {
+    max-width: none;
+    margin-inline: 0;
+  }
+
+  .cards-feature .cards-feature-card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  /* source: image column 2/6, text column 4/6 of each half-width card */
+  .cards-feature .cards-feature-card-image {
+    flex: 0 0 calc(100% / 3 - 12px);
+  }
+
+  .cards-feature.wide .cards-feature-card {
+    align-items: center;
+  }
+
+  /* source: image column 2/12 */
+  .cards-feature.wide .cards-feature-card-image {
+    flex-basis: calc(100% / 6);
+    height: 192px;
+  }
+
+  .cards-feature.wide .cards-feature-card:nth-child(even) .cards-feature-card-image {
+    height: 256px;
+  }
+}

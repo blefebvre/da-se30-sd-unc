@@ -1,0 +1,13 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/about/sponsors---partners.html",
+  "path": "en/home/about/sponsors-partners",
+  "timestamp": "2026-10-02T23:54:20.073Z",
+  "title": "Sponsors & Partners",
+  "template": "landing",
+  "blocks": [
+    "hero-overlay",
+    "cards-logos",
+    "columns-split"
+  ]
+}

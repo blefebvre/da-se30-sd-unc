@@ -1,0 +1,25 @@
+{
+  "variantName": "columns-media",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "text-with-image",
+    "imagePattern": "side-image",
+    "structure": "50/50 text + image within the 1200 container",
+    "notes": "stack on mobile keeping authored order; optional black pill CTA centered under the text"
+  },
+  "contentPattern": "1 row, 2 cells [text: H2 + paragraph(s) + optional strong link button | image] (either order)",
+  "usage": {
+    "pagesUsing": [
+      "https://www.ustanationalcampus.com/en/home/about.html",
+      "https://www.ustanationalcampus.com/en/home/about/usta-national-campus-scholarship.html",
+      "https://www.ustanationalcampus.com/en/home/play/programs/junior-tennis-programs.html"
+    ],
+    "reuseCount": 3,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

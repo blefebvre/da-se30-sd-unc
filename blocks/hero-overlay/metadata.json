@@ -1,0 +1,33 @@
+{
+  "variantName": "hero-overlay",
+  "baseBlock": "hero",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "dark-overlay | light-overlay (light option)",
+    "density": "minimal",
+    "purpose": "page-hero / in-page event banner",
+    "imagePattern": "full-bleed-background",
+    "structure": "image + heading + optional text + optional buttons",
+    "notes": "Default: dark rgba(0,0,0,.5) band 75% wide bottom-left, H1 (home) or H1 + text + blue buttons (about/play). centered: text centered over full-image tint, white pill buttons in a row. light: white translucent band, dark text, uppercase semibold subtitle."
+  },
+  "contentPattern": "1 column; row 1 image; row 2 heading + optional text + optional CTAs",
+  "usage": {
+    "pagesUsing": [
+      "https://www.ustanationalcampus.com/en/home.html",
+      "https://www.ustanationalcampus.com/en/home/play/programs/junior-tennis-programs.html"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [
+    {
+      "class": "centered",
+      "label": "Centered"
+    },
+    {
+      "class": "light",
+      "label": "Light band"
+    }
+  ],
+  "memberVariantIds": []
+}

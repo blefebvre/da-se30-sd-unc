@@ -1,0 +1,21 @@
+{
+  "variantName": "columns-stats",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "spacious",
+    "purpose": "key-statistics",
+    "imagePattern": "noimg",
+    "structure": "large number + uppercase label",
+    "notes": "Centered, large condensed black numbers, bold uppercase labels"
+  },
+  "contentPattern": "1 row, 4 columns; each cell: number (H2/strong large) + label paragraph",
+  "usage": {
+    "pagesUsing": ["https://www.ustanationalcampus.com/en/home.html"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-01"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

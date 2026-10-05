@@ -1,0 +1,22 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/tennis/adult-camps.html",
+  "path": "en/home/play/tennis/adult-camps",
+  "timestamp": "2026-10-02T23:51:45.469Z",
+  "title": "Adult Camps",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "columns-split",
+    "tabs",
+    "cards-booking",
+    "cards-booking",
+    "cards-booking",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion",
+    "accordion",
+    "embed"
+  ]
+}

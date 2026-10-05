@@ -1,0 +1,37 @@
+{
+  "variantName": "columns-split",
+  "baseBlock": "columns",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "stone (#DCDFCF), teal (#92BFB7), orange (#F0AA54) or clay (#C15642, white text) panel",
+    "density": "comfortable",
+    "purpose": "full-bleed split image + colored text panel",
+    "imagePattern": "half-bleed-cover-image",
+    "structure": "full-width 50/50: image cell covers its half edge-to-edge; text panel has solid background",
+    "notes": "block wrapper is full-bleed (no 1200 max-width). Stack image over panel on mobile. Panel supports H2, H4 sub-headings, nested lists and a black pill button. orange/clay: text left-aligned with an 18px inset, 50/50 from 992px with the image stretching to the row height; image cell may be on either side."
+  },
+  "contentPattern": "1 row, 2 cells [image | text panel: H2 + text/headings/lists + optional strong link button]",
+  "usage": {
+    "pagesUsing": [
+      "https://www.ustanationalcampus.com/en/home/about/usta-national-campus-scholarship.html",
+      "https://www.ustanationalcampus.com/en/home/about/sponsors---partners.html"
+    ],
+    "reuseCount": 2,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [
+    {
+      "class": "teal",
+      "label": "Teal panel"
+    },
+    {
+      "class": "orange",
+      "label": "Orange panel"
+    },
+    {
+      "class": "clay",
+      "label": "Clay panel"
+    }
+  ],
+  "memberVariantIds": []
+}

@@ -1,0 +1,21 @@
+{
+  "variantName": "cards-booking",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "court-booking-pricing",
+    "imagePattern": "top-landscape-image",
+    "structure": "image + title + short black rule + price + centered black pill button",
+    "notes": "4-col grid at desktop inside 1200 container; white cards with box-shadow; title semibold ~22px; short 34x4 black dash under title; BOOK NOW black pill (border-radius ~30px), centered, wide letter spacing"
+  },
+  "contentPattern": "2 columns per row: [image | H3 title + price paragraph(s) + strong link (BOOK NOW)]",
+  "usage": {
+    "pagesUsing": ["https://www.ustanationalcampus.com/en/home/play/book-a-court.html"],
+    "reuseCount": 1,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [],
+  "memberVariantIds": []
+}

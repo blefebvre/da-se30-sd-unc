@@ -1,0 +1,23 @@
+{
+  "variantName": "cards-icons",
+  "baseBlock": "cards",
+  "canonicalModel": "standalone",
+  "visualCharacteristics": {
+    "colorScheme": "light",
+    "density": "comfortable",
+    "purpose": "icon/flag/feature grid",
+    "imagePattern": "centered-icon-above-caption",
+    "structure": "centered borderless grid, image above caption",
+    "notes": "No card chrome. Flex-wrap with justify-content:center so incomplete rows are centered. Default 3 per row desktop, four option 4 per row (flag grid, uppercase captions); 2 per row tablet; 1 (default) / 2 (four) per row mobile. Images keep their intrinsic size (icons ~80px, flags ~186px). Empty image cell -> text-only item (bold/heading line + grouped lines)."
+  },
+  "contentPattern": "N rows x 2 cells [image (optional) | caption]",
+  "usage": {
+    "pagesUsing": [],
+    "reuseCount": 0,
+    "lastUsed": "2026-10-02"
+  },
+  "options": [
+    { "class": "four", "label": "Four per row" }
+  ],
+  "memberVariantIds": []
+}

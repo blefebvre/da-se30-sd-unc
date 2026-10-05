@@ -1,0 +1,615 @@
+/*
+ * Cards Mosaic
+ * Source: #mainContent .container.full-width-limit.inner_full-height > .cmp-container
+ * Mobile: stacked tiles. Tablet (>=768): featured full width + 2-col grid.
+ * Desktop (>=1024): featured left half spanning two rows + 2x2 grid on the right.
+ */
+
+.cards-mosaic > ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 100%;
+  row-gap: 9px;
+}
+
+.cards-mosaic .cards-mosaic-tile {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  isolation: isolate;
+  box-sizing: border-box;
+
+  /* photo tiles: image area above the overlay band (80px + 9px separator) */
+  padding-top: 89px;
+}
+
+.cards-mosaic .cards-mosaic-image {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  line-height: 0;
+}
+
+.cards-mosaic .cards-mosaic-image picture,
+.cards-mosaic .cards-mosaic-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 50%;
+}
+
+/* overlay band: translucent black, heading bottom-left */
+.cards-mosaic .cards-mosaic-body {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 8px 6px 8px 18px;
+  background-color: rgb(0 0 0 / 50%);
+  color: #fff;
+}
+
+.cards-mosaic .cards-mosaic-body > :first-child {
+  margin-top: 0;
+}
+
+.cards-mosaic .cards-mosaic-body > :last-child {
+  margin-bottom: 0;
+}
+
+.cards-mosaic .cards-mosaic-body h2,
+.cards-mosaic .cards-mosaic-body h3 {
+  margin: 0;
+  color: #fff;
+  font-family: var(--heading-font-family);
+  font-weight: 400;
+  line-height: 1.1;
+  text-align: left;
+}
+
+.cards-mosaic .cards-mosaic-body h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.cards-mosaic .cards-mosaic-body h3 {
+  font-size: var(--heading-font-size-l);
+}
+
+.cards-mosaic .cards-mosaic-body h2 a:any-link,
+.cards-mosaic .cards-mosaic-body h3 a:any-link,
+.cards-mosaic .cards-mosaic-body h2 a:hover,
+.cards-mosaic .cards-mosaic-body h3 a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* featured tile ("Meet Our Team") */
+.cards-mosaic .cards-mosaic-featured {
+  min-height: 355px;
+  padding-top: 0;
+}
+
+.cards-mosaic .cards-mosaic-featured .cards-mosaic-body {
+  width: 83.3333%;
+  padding-bottom: 25px;
+}
+
+.cards-mosaic .cards-mosaic-featured .cards-mosaic-body h2 {
+  margin-bottom: 16px;
+}
+
+/* CTA button ("SHOW ME") — base look comes from global a.button.primary */
+.cards-mosaic .cards-mosaic-body p.button-wrapper {
+  margin: 0;
+  line-height: 0;
+}
+
+main .cards-mosaic .cards-mosaic-body a.button:any-link {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  box-sizing: border-box;
+  width: calc((100% + 12px) * 0.6 - 12px);
+  height: 40px;
+  padding: 14px;
+  border: 1px solid #000;
+  border-radius: 3px;
+  background-color: var(--brand-blue);
+  color: #fff;
+  font-family: var(--body-semibold-font-family);
+  font-size: 14px;
+  line-height: 20px;
+
+  /* source sets 1px on a.cmp-button but resets it on the inner text span */
+  letter-spacing: normal;
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+main .cards-mosaic .cards-mosaic-body a.button:hover,
+main .cards-mosaic .cards-mosaic-body a.button:focus-visible {
+  background-color: #000;
+  color: #fff;
+}
+
+/* solid brand-blue tile without image ("Book a Court") */
+.cards-mosaic .cards-mosaic-no-image {
+  justify-content: center;
+  min-height: 150px;
+  padding: 16px 12px;
+  background-color: var(--brand-blue);
+}
+
+.cards-mosaic .cards-mosaic-no-image .cards-mosaic-body {
+  padding: 8px 6px;
+  background-color: transparent;
+}
+
+.cards-mosaic .cards-mosaic-no-image .cards-mosaic-body h2,
+.cards-mosaic .cards-mosaic-no-image .cards-mosaic-body h3 {
+  text-align: center;
+}
+
+/* whole-tile click target from the heading link */
+.cards-mosaic .cards-mosaic-linked .cards-mosaic-body h1 a::after,
+.cards-mosaic .cards-mosaic-linked .cards-mosaic-body h2 a::after,
+.cards-mosaic .cards-mosaic-linked .cards-mosaic-body h3 a::after,
+.cards-mosaic .cards-mosaic-linked .cards-mosaic-body h4 a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+@media (width >= 768px) {
+  .cards-mosaic > ul {
+    grid-template-columns: 50% 1fr;
+    column-gap: 8px;
+  }
+
+  .cards-mosaic .cards-mosaic-tile {
+    /* 160px image area + 9px separator */
+    padding-top: 169px;
+  }
+
+  .cards-mosaic .cards-mosaic-featured {
+    grid-column: 1 / -1;
+    min-height: 503px;
+    padding-top: 0;
+  }
+
+  .cards-mosaic .cards-mosaic-featured .cards-mosaic-body {
+    width: 100%;
+  }
+
+  main .cards-mosaic .cards-mosaic-body a.button:any-link {
+    width: calc((100% + 12px) / 3 - 12px);
+  }
+
+  .cards-mosaic .cards-mosaic-no-image {
+    min-height: 250px;
+    padding: 32px 12px;
+  }
+
+  /* underlined heading on the solid tile from tablet up (plain on mobile) */
+  .cards-mosaic .cards-mosaic-no-image .cards-mosaic-body h2 a:any-link,
+  .cards-mosaic .cards-mosaic-no-image .cards-mosaic-body h3 a:any-link {
+    text-decoration: underline;
+  }
+}
+
+@media (width >= 1024px) {
+  .cards-mosaic > ul {
+    grid-template-columns: 50% 1fr 1fr;
+  }
+
+  .cards-mosaic .cards-mosaic-featured {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    min-height: 0;
+  }
+
+  .cards-mosaic .cards-mosaic-tile:not(.cards-mosaic-featured, .cards-mosaic-no-image) {
+    align-self: center;
+  }
+
+  main .cards-mosaic .cards-mosaic-body a.button:any-link {
+    width: calc((100% + 12px) * 2 / 3 - 12px);
+  }
+}
+
+/*
+ * Content-rich mosaics (.cards-mosaic-rich, set in JS when tiles carry
+ * description text): events + programs pages. The home mosaic never gets
+ * these classes, so everything below is additive.
+ * Source: events #container-83c29f7bb0 (trio), #container-ac9ebc274b,
+ * play/programs #container-a3f972ea5f.
+ */
+
+/* source 2x2 containers open with a 9px separator rule */
+.cards-mosaic.cards-mosaic-rich:not(.cards-mosaic-trio) > ul {
+  margin-top: 9px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-tile {
+  padding-top: 64px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-body {
+  padding: 8px 18px;
+  background-color: rgb(0 0 0 / 75%);
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-body p:not(.button-wrapper) {
+  margin: 0;
+  color: #fff;
+  font-family: var(--body-font-family);
+  font-size: var(--body-font-size-m);
+  line-height: 24px;
+}
+
+/* bold event date line ("SEPTEMBER 16-19") */
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-body p.cards-mosaic-date {
+  margin: 26px 0 10px;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--heading-font-size-s);
+  line-height: 1.1;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-date strong,
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-date b {
+  font-weight: 400;
+}
+
+/* all-caps label tiles ("CORPORATE EVENTS", "COLLEGIATE") */
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-label {
+  padding-top: 48px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-label:nth-child(n + 4) {
+  padding-top: 36px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-label .cards-mosaic-body {
+  padding: 18px 18px 8px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-label .cards-mosaic-body h2,
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-label .cards-mosaic-body h3 {
+  margin-bottom: 10px;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--heading-font-size-xs);
+}
+
+/* featured tile: base = programs ("Adult Tennis": heading + description) */
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-featured {
+  min-height: 0;
+  padding-top: 208px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-featured .cards-mosaic-body {
+  width: 100%;
+  padding: 17px 18px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-featured .cards-mosaic-body h2 {
+  margin-bottom: 0;
+  font-size: var(--heading-font-size-xxl);
+}
+
+/* featured tile with CTA ("USTA National Campus Events") */
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-featured.cards-mosaic-has-cta {
+  padding-top: 119px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-featured.cards-mosaic-has-cta .cards-mosaic-body h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-body p.button-wrapper {
+  margin-top: 16px;
+}
+
+main .cards-mosaic.cards-mosaic-rich .cards-mosaic-body a.button:any-link {
+  width: fit-content;
+  padding: 14px;
+  border-color: transparent;
+  font-size: 18px;
+  line-height: 20px;
+}
+
+main .cards-mosaic.cards-mosaic-rich .cards-mosaic-body a.button:hover,
+main .cards-mosaic.cards-mosaic-rich .cards-mosaic-body a.button:focus-visible {
+  border-color: #000;
+}
+
+/* "CONTACT SALES" with leading envelope icon */
+main .cards-mosaic.cards-mosaic-rich .cards-mosaic-body a.cards-mosaic-button-with-icon:any-link {
+  padding: 14px 34px 14px 14px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-button-icon {
+  display: block;
+  flex: 0 0 20px;
+  order: -1;
+  width: 20px;
+  height: 20px;
+  margin: 0 10px;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-button-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  filter: brightness(0) invert(1);
+}
+
+/* trio: featured event + solid "Book an Event" tile + photo tile */
+.cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured {
+  padding-top: 112px;
+}
+
+.cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured .cards-mosaic-body {
+  padding: 24px 18px;
+}
+
+.cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured .cards-mosaic-body h2 {
+  font-size: var(--heading-font-size-xl);
+}
+
+.cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-label {
+  padding-top: 138px;
+}
+
+.cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-label .cards-mosaic-body {
+  padding: 27px 18px 17px;
+}
+
+.cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-label .cards-mosaic-body h2,
+.cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-label .cards-mosaic-body h3 {
+  font-size: var(--heading-font-size-s);
+}
+
+/* solid tile with a dark bottom strip link ("Book an Event" / "BOOK NOW") */
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-has-strip {
+  justify-content: flex-start;
+  min-height: 283px;
+  padding: 0;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-tile.cards-mosaic-has-strip .cards-mosaic-body {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  padding: 0;
+  background-color: transparent;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-tile.cards-mosaic-has-strip .cards-mosaic-body h2,
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-tile.cards-mosaic-has-strip .cards-mosaic-body h3 {
+  padding: 39px 6px 0;
+  font-size: var(--heading-font-size-xl);
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-body p.cards-mosaic-strip {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  box-sizing: border-box;
+  min-height: 92px;
+  margin-top: auto;
+  padding: 0 10px 0 6px;
+  background-color: rgb(0 0 0 / 75%);
+  line-height: 0;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-strip a:any-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-family: var(--body-semibold-font-family);
+  font-size: var(--heading-font-size-s);
+  line-height: 1.1;
+  text-decoration: none;
+}
+
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-strip a::before {
+  content: '';
+  flex: 0 0 auto;
+  order: 1;
+  width: 15px;
+  height: 12px;
+  background: url('book-now-icon.svg') center / contain no-repeat;
+}
+
+/* whole tile is the click target */
+.cards-mosaic.cards-mosaic-rich .cards-mosaic-body .cards-mosaic-strip a::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+@media (width >= 768px) {
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-tile {
+    padding-top: 141px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-label {
+    padding-top: 109px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-label:nth-child(n + 4) {
+    padding-top: 77px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-label .cards-mosaic-body {
+    padding-bottom: 13px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured {
+    padding-top: 425px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured .cards-mosaic-body {
+    padding-right: calc((100% - 24px) / 6 + 18px);
+    background-color: rgb(0 0 0 / 65%);
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured .cards-mosaic-body h2 {
+    font-size: var(--heading-font-size-xl);
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured.cards-mosaic-has-cta {
+    margin-bottom: 9px;
+    padding-top: 393px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured.cards-mosaic-has-cta .cards-mosaic-body {
+    padding-right: 18px;
+    background-color: rgb(0 0 0 / 75%);
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured {
+    margin-bottom: 0;
+    padding-top: 224px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured .cards-mosaic-body {
+    padding: 40px 18px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-label {
+    padding-top: 261px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-label .cards-mosaic-body {
+    padding: 29px 18px 21px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-has-strip {
+    padding: 0;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-body p.cards-mosaic-strip {
+    min-height: 94px;
+    padding-right: 16px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-strip a::before {
+    width: 42px;
+    height: 34px;
+  }
+}
+
+@media (width >= 992px) {
+  .cards-mosaic.cards-mosaic-rich > ul {
+    grid-template-columns: calc(50% - 8px) 25% 1fr;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-tile {
+    align-self: stretch;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    padding-top: 0;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured .cards-mosaic-body {
+    width: 83.3333%;
+    padding: 24px 18px 31px;
+    background-color: rgb(0 0 0 / 75%);
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-label {
+    padding-top: 97px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-label .cards-mosaic-body {
+    padding-bottom: 24px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-label:nth-child(n + 4) {
+    padding-top: 78px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-label:nth-child(n + 4) .cards-mosaic-body {
+    padding-bottom: 12px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured .cards-mosaic-body h2 {
+    font-size: var(--heading-font-size-xxl);
+  }
+
+  /* programs mosaic starts flush on desktop */
+  .cards-mosaic.cards-mosaic-rich:has(.cards-mosaic-featured:not(.cards-mosaic-has-cta)) > ul {
+    margin-top: 0;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured.cards-mosaic-has-cta {
+    margin-bottom: 0;
+    padding-top: 0;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured.cards-mosaic-has-cta .cards-mosaic-body {
+    width: 100%;
+    padding: 34px 18px 53px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured.cards-mosaic-has-cta .cards-mosaic-body h2 {
+    font-size: var(--heading-font-size-xl);
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-featured.cards-mosaic-has-cta p.button-wrapper {
+    margin-top: 34px;
+  }
+
+  /* trio: all three tiles share one full-height row */
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured {
+    grid-row: 1;
+    padding-top: 192px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured .cards-mosaic-body {
+    padding: 40px 18px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured .cards-mosaic-body h2 {
+    font-size: var(--heading-font-size-l);
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured p.button-wrapper {
+    margin-top: 16px;
+  }
+
+  main .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-featured a.button:any-link {
+    width: calc((100% + 12px) / 4 - 12px);
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-label {
+    padding-top: 0;
+  }
+
+  .cards-mosaic.cards-mosaic-rich.cards-mosaic-trio .cards-mosaic-label .cards-mosaic-body {
+    padding: 38px 18px 39px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-tile.cards-mosaic-has-strip .cards-mosaic-body h2,
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-tile.cards-mosaic-has-strip .cards-mosaic-body h3 {
+    padding-top: 66px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-body p.cards-mosaic-strip {
+    min-height: 121px;
+    padding-right: 10px;
+  }
+
+  .cards-mosaic.cards-mosaic-rich .cards-mosaic-strip a::before {
+    width: 14px;
+    height: 12px;
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/programs/adult-tennis.html",
+  "path": "en/home/play/programs/adult-tennis",
+  "timestamp": "2026-10-02T23:51:33.183Z",
+  "title": "Adult Tennis Programs",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "columns-split",
+    "tabs",
+    "columns-media",
+    "cards-icons",
+    "cards-programs",
+    "accordion",
+    "carousel"
+  ]
+}

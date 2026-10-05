@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/play-padel.html",
+  "path": "en/home/play/play-padel",
+  "timestamp": "2026-10-02T23:51:22.842Z",
+  "title": "Padel Programs",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "tabs",
+    "columns-media",
+    "accordion",
+    "carousel"
+  ]
+}

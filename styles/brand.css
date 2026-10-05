@@ -1,0 +1,67 @@
+/* Brand tokens extracted from https://www.ustanationalcampus.com/en/home.html */
+:root {
+  /* fonts */
+  --heading-font-family: "Graphik XXCond Bold", graphik-xxcond-fallback, tahoma, sans-serif;
+  --body-font-family: "Graphik Regular", graphik-fallback, tahoma, sans-serif;
+  --body-semibold-font-family: "Graphik Semibold", graphik-fallback, tahoma, sans-serif;
+
+  /* colors */
+  --background-color: #fff;
+  --text-color: #333;
+  --heading-color: #000;
+  --link-color: #0357b8;
+  --link-hover-color: #23527c;
+  --brand-blue: #0373f3;
+  --brand-teal: #92bfb7;
+  --dusty-clay: #dcdfcf;
+  --clay: #c15642;
+  --brand-gradient: linear-gradient(50deg, #0373f3 0%, #ffefbe 100%);
+  --alert-orange: #f0ad5a;
+  --light-color: #f5f5f5;
+  --dark-color: #000;
+
+  /* white button icons (source usta-icons: Envelope, Play, Calendar, Tennis-Ball) */
+  --icon-envelope: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M20.00,8.00 L12.00,13.00 L4.00,8.00 L4.00,6.00 L12.00,11.00 L20.00,6.00 L20.00,8.00 Z M20.00,4.00 L4.00,4.00 C2.89,4.00 2.01,4.89 2.01,6.00 L2.00,18.00 C2.00,19.10 2.89,20.00 4.00,20.00 L20.00,20.00 C21.10,20.00 22.00,19.10 22.00,18.00 L22.00,6.00 C22.00,4.89 21.10,4.00 20.00,4.00 L20.00,4.00 Z'/%3E%3C/svg%3E");
+  --icon-play: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M10.00,16.50 L10.00,7.50 L16.00,12.00 L10.00,16.50 Z M12.00,2.00 C6.47,2.00 2.00,6.47 2.00,12.00 C2.00,17.52 6.47,22.00 12.00,22.00 C17.52,22.00 22.00,17.52 22.00,12.00 C22.00,6.47 17.52,2.00 12.00,2.00 L12.00,2.00 Z'/%3E%3C/svg%3E");
+  --icon-calendar: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='%23fff' fill-rule='evenodd' d='M18.33,18.33 L15.16,18.33 L15.16,15.16 L18.33,15.16 L18.33,18.33 Z M13.58,10.41 L10.41,10.41 L10.41,13.58 L13.58,13.58 L13.58,10.41 Z M18.33,10.41 L15.16,10.41 L15.16,13.58 L18.33,13.58 L18.33,10.41 Z M8.83,15.16 L5.66,15.16 L5.66,18.33 L8.83,18.33 L8.83,15.16 Z M13.58,15.16 L10.41,15.16 L10.41,18.33 L13.58,18.33 L13.58,15.16 Z M8.83,10.41 L5.66,10.41 L5.66,13.58 L8.83,13.58 L8.83,10.41 Z M21.5,4.08 L21.5,21.5 L2.5,21.5 L2.5,4.08 L4.87,4.08 L4.87,4.87 C4.87,5.74 5.58,6.45 6.45,6.45 C7.33,6.45 8.04,5.74 8.04,4.87 L8.04,4.08 L15.95,4.08 L15.95,4.87 C15.95,5.74 16.66,6.45 17.54,6.45 C18.41,6.45 19.12,5.74 19.12,4.87 L19.12,4.08 L21.5,4.08 Z M19.91,8.83 L4.08,8.83 L4.08,19.91 L19.91,19.91 L19.91,8.83 Z M18.33,3.29 C18.33,2.85 17.97,2.5 17.54,2.5 C17.10,2.5 16.75,2.85 16.75,3.29 L16.75,4.87 C16.75,5.31 17.10,5.66 17.54,5.66 C17.97,5.66 18.33,5.31 18.33,4.87 L18.33,3.29 Z M7.25,4.87 C7.25,5.31 6.89,5.66 6.45,5.66 C6.02,5.66 5.66,5.31 5.66,4.87 L5.66,3.29 C5.66,2.85 6.02,2.5 6.45,2.5 C6.89,2.5 7.25,2.85 7.25,3.29 L7.25,4.87 Z'/%3E%3C/svg%3E");
+  --icon-ball: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='21.41' height='21.41' viewBox='0 0 21.41 21.41'%3E%3Cg fill='%23cfff05'%3E%3Cpath d='M 10.70 20.40 C 5.35 20.40 0.99 16.05 0.99 10.70 C 0.99 5.35 5.35 0.99 10.70 0.99 C 16.05 0.99 20.40 5.35 20.40 10.70 C 20.40 16.05 16.05 20.40 10.70 20.40 Z' stroke='none'/%3E%3Cpath d='M 10.70 2 C 5.90 2 2 5.90 2 10.70 C 2 15.50 5.90 19.40 10.70 19.40 C 15.50 19.40 19.40 15.50 19.40 10.70 C 19.40 5.90 15.50 2 10.70 2 M 10.70 0 C 16.61 0 21.40 4.79 21.40 10.70 C 21.40 16.61 16.61 21.40 10.70 21.40 C 4.79 21.40 0 16.61 0 10.70 C 0 4.79 4.79 0 10.70 0 Z' stroke='none' fill='%23000'/%3E%3C/g%3E%3Cg transform='translate(1.51 1.61)'%3E%3Cg transform='translate(0 0)'%3E%3Cpath d='M30.16,29.97a5.49,5.49,0,0,0,.016-7.83l-3.1-3.06-1.27.116,3.68,3.63a4.53,4.53,0,0,1-.014,6.46,4.69,4.69,0,0,1-6.55.014l-3.74-3.69-.058,1.32,3.1,3.05a5.68,5.68,0,0,0,7.94-.016' transform='translate(-19.11 -19.07)'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+
+  /* spacing */
+  --section-padding: 0;
+  --content-max-width: 1200px;
+  --nav-height: 160px;
+
+  /* body sizes (mobile) */
+  --body-font-size-m: 16px;
+  --body-font-size-s: 14px;
+  --body-font-size-xs: 12px;
+
+  /* heading sizes (mobile) */
+  --heading-font-size-xxl: 54px;
+  --heading-font-size-xl: 44px;
+  --heading-font-size-l: 36px;
+  --heading-font-size-m: 22px;
+  --heading-font-size-s: 20px;
+  --heading-font-size-xs: 16px;
+}
+
+@media (width >= 768px) {
+  :root {
+    --body-font-size-m: 18px;
+    --body-font-size-s: 16px;
+    --body-font-size-xs: 14px;
+    --heading-font-size-xxl: 100px;
+    --heading-font-size-xl: 76px;
+    --heading-font-size-l: 56px;
+    --heading-font-size-m: 28px;
+    --heading-font-size-s: 22px;
+    --heading-font-size-xs: 18px;
+  }
+}
+
+@media (width >= 1200px) {
+  :root {
+    /* alert bar + main nav + breadcrumb */
+    --nav-height: 213px;
+  }
+}

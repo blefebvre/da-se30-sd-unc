@@ -1,0 +1,15 @@
+{
+  "status": "success",
+  "url": "https://www.ustanationalcampus.com/en/home/play/tennis/adult-red-ball.html",
+  "path": "en/home/play/tennis/adult-red-ball",
+  "timestamp": "2026-10-02T23:51:51.599Z",
+  "title": "Red Ball Tennis",
+  "template": "program-detail",
+  "blocks": [
+    "hero-overlay",
+    "columns-split",
+    "cards-icons",
+    "carousel",
+    "embed"
+  ]
+}
